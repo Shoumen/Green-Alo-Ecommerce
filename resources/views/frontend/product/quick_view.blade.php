@@ -46,7 +46,7 @@
                  <p>{{ $product->category->category_name }} > {{ $product->subcategory->subcategory_name }}</p>
                  <p>Brand: {{ $product->brand->brand_name }}</p>
                  <p>Stock: @if($product->stock_quantity<1) <span class="badge badge-danger">Stock Out</span> @else <span class="badge badge-success">Stock Available</span> @endif </p>
-                 <div class="">
+                 <div class=""> <!-- https://github.com/Shoumen -->
                   @if($product->discount_price==NULL)
 			             <div class="">Price: {{ $setting->currency }}{{ $product->selling_price }}</div>
 			            @else
@@ -77,7 +77,7 @@
                   												   <option value="{{ $size }}">{{ $size }}</option>
                   												@endforeach
                   											</select>
-                  										</div>
+                  										</div> <!-- https://github.com/Shoumen -->
                   									@endisset
                                     @isset($product->color)
                                     <div class="col-lg-4">

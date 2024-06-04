@@ -21,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>New Product</h1>
+            <h1>New Electrician</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add product</li>
+              <li class="breadcrumb-item active">Add Electrician</li>
             </ol>
           </div>
         </div>
@@ -46,7 +46,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-       <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+       <form action="{{ route('electrician.store') }}" method="post" enctype="multipart/form-data">
         @csrf
        	<div class="row">
           <!-- left column -->
@@ -54,128 +54,63 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add New Product</h3>
+                <h3 class="card-title">Add New Electrician</h3>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Product Name <span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Name <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="elec_name" value=""  required="">
                     </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Product Code <span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" value="{{ old('code') }}" name="code" required="">
+                    
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Phone <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="elec_phone" value=""  required="">
+                      
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Category/Subcategory <span class="text-danger">*</span> </label>
-                      <select class="form-control" name="subcategory_id" id="subcategory_id" data-url="{{url('/')}}">
-                        <option disabled="" selected="">==choose category==</option>
-                        @foreach($category as $row)
-                           @php 
-                              $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
-                           @endphp
-                           <option style="color:blue;" disabled="">{{ $row->category_name }}</option>
-                              @foreach($subcategory as $row)
-                                <option value="{{ $row->id }}"> -- {{ $row->subcategory_name }}</option>
-                              @endforeach
-                        @endforeach 
-                      </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Child category<span class="text-danger">*</span> </label>
-                      <select class="form-control" name="childcategory_id" id="childcategory_id">
-                        @php 
-                            $childCategory=DB::table('childcategories')->get();
-                        @endphp
-                          <option value="">select parent</option>
-                      </select>
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Email <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="elec_email" value=""  required="">
+                      
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Brand <span class="text-danger">*</span> </label>
-                      <select class="form-control" name="brand_id">
-                        @foreach($brand as $row)
-                          <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-                        @endforeach 
-                      </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Pickup Point</label>
-                      <select class="form-control" name="pickup_point_id">
-                        @foreach($pickup_point as $row)
-                          <option value="{{ $row->id }}">{{ $row->pickup_point_name  }}</option>
-                        @endforeach
-                      </select>
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician password <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="elec_password" value=""  required="">
+                      
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Unit <span class="text-danger">*</span> </label>
-                      <input type="text" class=form-control name="unit" value="{{ old('unit') }}" required="">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Nid Number <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="elec_nid_number" value=""  required="">
+                      
                     </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Tags</label><br>
-                      <input type="text" name="tags" class="form-control" value="{{ old('tags') }}" name="tags" data-role="tagsinput">
-                    </div>
+                   
                   </div>
+               
                   <div class="row">
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Purchase Price  </label>
-                      <input type="text" class="form-control" {{ old('purchase_price') }} name="purchase_price">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Remarks <span class="text-danger">*</span> </label>
+                      <input type="text" class=form-control name="elec_remarks" value="" required="">
                     </div>
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Selling Price <span class="text-danger">*</span> </label>
-                      <input type="text" name="selling_price" value="{{ old('selling_price') }}" class="form-control" required="">
-                    </div>
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Discount Price </label>
-                      <input type="text" name="discount_price" value="{{ old('discount_price') }}" class="form-control">
-                    </div>
+                   
                   </div>
-                  <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Warehouse <span class="text-danger">*</span> </label>
-                      <select class="form-control" name="warehouse">
-                        @foreach($warehosue as $row)
-                         <option value="{{ $row->id }}">{{ $row->warehouse_name }}</option>
-                        @endforeach 
-                      </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Stock</label>
-                      <input type="text" name="stock_quantity" value="{{ old('stock_quantity') }}" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Color</label><br>
-                      <input type="text" class="form-control" value="{{ old('color') }}" data-role="tagsinput" name="color" />
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Size</label><br>
-                      <input type="text" class="form-control" value="{{ old('size') }}" data-role="tagsinput" name="size"  />
-                    </div>
-                  </div>
-
                   <div class="row">
                     <div class="form-group col-lg-12">
                       <label for="exampleInputPassword1">Product Details</label>
-                      <textarea class="form-control textarea" name="description">{{ old('description') }}</textarea>
+                      <textarea class="form-control textarea" name="elec_description"></textarea>
                     </div>
                   </div>
+                  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
 
-                  <div class="row">
-                    <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Video Embed Code</label>
-                      <input class="form-control" name="video" value="{{ old('video') }}" placeholder="Only code after embed word">
-                      <small class="text-danger">Only code after embed word</small>
-                    </div>
-                  </div>
+                
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -188,13 +123,14 @@
             <div class="card card-primary">
               <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Main Thumbnail <span class="text-danger">*</span> </label><br>
+                    <label for="exampleInputEmail1">Elctrician Image <span class="text-danger">*</span> </label><br>
                     <input type="file" name="thumbnail" required="" accept="image/*" class="dropify">
-                  </div><br>
+                  </div>
+                  <br>
                   <div class="">  
                     <table class="table table-bordered" id="dynamic_field">
                     <div class="card-header">
-                      <h3 class="card-title">More Images (Click Add For More Image)</h3>
+                      <h3 class="card-title">Electrician NID (Click Add For Front Side And Back Side)</h3>
                     </div> 
                       <tr>  
                           <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>  
@@ -202,29 +138,11 @@
                       </tr>  
                     </table>    
                   </div>
-                     <div class="card p-4">
-                        <h6>Featured Product</h6>
-                       <input type="checkbox" name="featured" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
-
-                     <div class="card p-4">
-                        <h6>Today Deal</h6>
-                       <input type="checkbox" name="today_deal" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
-
-                     <div class="card p-4">
-                        <h6>Slider Product</h6>
-                       <input type="checkbox" name="product_slider" value="1"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
-
-                     <div class="card p-4">
-                        <h6>Trendy Product</h6>
-                       <input type="checkbox" name="trendy" value="1"  data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
+                    
 
                      <div class="card p-4">
                         <h6>Status</h6>
-                       <input type="checkbox" name="status" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                       <input type="checkbox" name="elec_status" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
                   
               </div>

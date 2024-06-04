@@ -13,20 +13,18 @@
     border-radius: 4px;
   }
 </style>
-
-
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Update Product</h1>
+            <h1>New Electrician</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Update product</li>
+              <li class="breadcrumb-item active">Add Electrician</li>
             </ol>
           </div>
         </div>
@@ -46,137 +44,84 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-       <form action="{{ route('product.update') }}" method="post" enctype="multipart/form-data">
+       <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="id" value="{{ $product->id }}">
        	<div class="row">
           <!-- left column -->
-          <div class="col-lg-8">
+          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Update Product</h3>
+                <h3 class="card-title">Add New Electrician</h3>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Product Name <span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" name="name" value="{{ $product->name }}"  required="">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Name <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
                     </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Product Code <span class="text-danger">*</span> </label>
-                      <input type="text" class="form-control" value="{{ $product->code }}" name="code" required="">
+                  
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Phone <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
+                      
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Category/Subcategory <span class="text-danger">*</span> </label>
-                      <select class="form-control" name="subcategory_id" id="subcategory_id">
-                        <option disabled="" selected="">==choose category==</option>
-                        @foreach($category as $row)
-                           @php 
-                              $subcategory=DB::table('subcategories')->where('category_id',$row->id)->get();
-                           @endphp
-                           <option style="color:blue;" disabled="">{{ $row->category_name }}</option>
-                              @foreach($subcategory as $row)
-                                <option value="{{ $row->id }}" @if($row->id==$product->subcategory_id) selected @endif > -- {{ $row->subcategory_name }}</option>
-                              @endforeach
-                        @endforeach 
-                      </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Child category<span class="text-danger">*</span> </label>
-                      <select class="form-control" name="childcategory_id" id="childcategory_id">
-                         @foreach($childcategory as $child)
-                          <option value="{{ $child->id }}"  @if($child->id==$product->childcategory_id) selected @endif>
-                            {{ $child->childcategory_name }}
-                          </option>
-                         @endforeach
-                      </select>
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Email <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
+                      
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Brand <span class="text-danger">*</span> </label>
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Nid Number <span class="text-danger">*</span> </label>
+                      <input type="text" class="form-control" name="name" value="{{ old('name') }}"  required="">
+                      
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Creator <span class="text-danger">*</span> </label>
                       <select class="form-control" name="brand_id">
-                        @foreach($brand as $row)
-                          <option value="{{ $row->id }}" @if($row->id==$product->brand_id) selected @endif>{{ $row->brand_name }}</option>
-                        @endforeach 
+                        
+                          <option value="#"></option>
+                       
                       </select>
                     </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Pickup Point</label>
-                      <select class="form-control" name="pickup_point_id">
-                        @foreach($pickup_point as $row)
-                          <option value="{{ $row->id }}" @if($row->id==$product->pickup_point_id) selected @endif >{{ $row->pickup_point_name  }}</option>
-                        @endforeach
+                   
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Editor <span class="text-danger">*</span> </label>
+                      <select class="form-control" name="brand_id">
+                        
+                          <option value="#"></option>
+                       
                       </select>
                     </div>
+                    
                   </div>
                   <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Unit <span class="text-danger">*</span> </label>
-                      <input type="text" class=form-control name="unit" value="{{ $product->unit }}" required="">
+                    <div class="form-group col-lg-12">
+                      <label for="exampleInputEmail1">Electrician Remarks <span class="text-danger">*</span> </label>
+                      <input type="text" class=form-control name="unit" value="{{ old('unit') }}" required="">
                     </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Tags</label><br>
-                      <input type="text" name="tags" class="form-control" value="{{ $product->tags }}" name="tags" data-role="tagsinput">
-                    </div>
+                   
                   </div>
-                  <div class="row">
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Purchase Price  </label>
-                      <input type="text" class="form-control" value="{{ $product->purchase_price }}" name="purchase_price">
-                    </div>
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Selling Price <span class="text-danger">*</span> </label>
-                      <input type="text" name="selling_price" value="{{ $product->selling_price }}" class="form-control" required="">
-                    </div>
-                    <div class="form-group col-lg-4">
-                      <label for="exampleInput">Discount Price </label>
-                      <input type="text" name="discount_price" value="{{ $product->discount_price }} " class="form-control">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Warehouse <span class="text-danger">*</span> </label>
-                      <select class="form-control" name="warehouse">
-                        @foreach($warehouse as $row)
-                         <option value="{{ $row->id }}">{{ $row->warehouse_name }}</option>
-                        @endforeach 
-                      </select>
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Stock</label>
-                      <input type="text" name="stock_quantity" value="{{ $product->stock_quantity }}" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Color</label><br>
-                      <input type="text" class="form-control" value="{{ $product->color }}" data-role="tagsinput" name="color" />
-                    </div>
-                    <div class="form-group col-lg-6">
-                      <label for="exampleInputPassword1">Size</label><br>
-                      <input type="text" class="form-control" value="{{ $product->size }}" data-role="tagsinput" name="size"  />
-                    </div>
-                  </div>
-
                   <div class="row">
                     <div class="form-group col-lg-12">
                       <label for="exampleInputPassword1">Product Details</label>
-                      <textarea class="form-control textarea" name="description">{{ $product->description }}</textarea>
+                      <textarea class="form-control textarea" name="description">{{ old('description') }}</textarea>
                     </div>
                   </div>
 
-                  <div class="row">
-                    <div class="form-group col-lg-12">
-                      <label for="exampleInputPassword1">Video Embed Code</label>
-                      <textarea class="form-control" name="video">{{ $product->video }}</textarea>
-                    </div>
-                  </div>
+                 
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -184,61 +129,31 @@
            </div>
             <!-- /.card -->
           <!-- right column -->
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <!-- Form Element sizes -->
             <div class="card card-primary">
               <div class="card-body">
                   <div class="form-group">
-                    <img src="{{asset('files/product/'.$product->thumbnail)}}" style="height: 50px; width:50px;">
-                    <label for="exampleInputEmail1">Main Thumbnail <span class="text-danger">*</span> </label><br>
-                    <input type="file" name="thumbnail"  accept="image/*" class="dropify">
-                    <input type="hidden" name="old_thumbnail" value="{{ $product->thumbnail }}" >
-                  </div><br>
+                    <label for="exampleInputEmail1">Elctrician Image <span class="text-danger">*</span> </label><br>
+                    <input type="file" name="thumbnail" required="" accept="image/*" class="dropify">
+                  </div>
+                  <br>
                   <div class="">  
                     <table class="table table-bordered" id="dynamic_field">
                     <div class="card-header">
-                      <h3 class="card-title">More Images (Click Add For More Image)</h3>
+                      <h3 class="card-title">Electrician NID (Click Add For Front Side And Back Side)</h3>
                     </div> 
                       <tr>  
-                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>   
+                          <td><input type="file" accept="image/*" name="images[]" class="form-control name_list" /></td>  
                           <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>  
                       </tr>  
-                          @php
-                             $images = json_decode($product->images,true);
-                          @endphp
-                          @if(!$images)
-                          @else
-                          <div class="row" >
-                           @foreach($images as $key => $image)
-                             <div class="col-md-4" >
-                                <img alt="" src="{{asset('files/product/'.$image)}}" style="width: 100px; height: 80px; padding: 10px;"/>
-                                <input type="hidden" name="old_images[]" value="{{ $image }}">
-                                <button type="button" class="remove-files" style="border: none;">X</button>
-                             </div>
-                           @endforeach
-                           </div>
-                          @endif
-
                     </table>    
                   </div>
-                     <div class="card p-4">
-                        <h6>Featured Product</h6>
-                       <input type="checkbox" name="featured" value="1" @if($product->featured==1) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
-
-                     <div class="card p-4">
-                        <h6>Today Deal</h6>
-                       <input type="checkbox" name="today_deal" value="1" @if($product->today_deal==1) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
-
-                     <div class="card p-4">
-                        <h6>Slider Product</h6>
-                       <input type="checkbox" name="product_slider" value="1" @if($product->product_slider==1) checked @endif  data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                     </div>
+                    
 
                      <div class="card p-4">
                         <h6>Status</h6>
-                       <input type="checkbox" name="status" value="1" @if($product->status==1) checked @endif data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                       <input type="checkbox" name="status" value="1" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
                      </div>
                   
               </div>

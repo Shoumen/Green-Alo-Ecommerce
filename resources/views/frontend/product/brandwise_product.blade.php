@@ -25,7 +25,7 @@
 			                        <div class="owl-item">
 			                            <div class="brands_item d-flex flex-column justify-content-center">
 			                               <a href="{{ route('brandwise.product',$row->id) }}" title="{{ $row->brand_name }}"> <img src="{{ asset($row->brand_logo) }}" alt="{{ $row->brand_name }}" height="50" width="40"> </a>
-			                            </div>
+			                            </div> <!-- https://github.com/Shoumen -->
 			                        </div>
 			                       @endforeach     
 			                    </div>
@@ -74,7 +74,7 @@
 					</div>
 				</div>
 
-				<div class="col-lg-9">
+				<div class="col-lg-9"> <!-- https://github.com/Shoumen -->
 					
 					<!-- Shop Content -->
 
@@ -160,7 +160,7 @@
                                     <div class="viewed_image"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}"></div>
                                     <div class="viewed_content text-center">
                                         @if($row->discount_price==NULL)
-                                        {{ $setting->currency }}{{ $row->selling_price }}
+                                        {{ $setting->currency }}{{ $row->selling_price }} <!-- https://github.com/Shoumen -->
                                         @else
                                         {{ $setting->currency }} {{ $row->discount_price }}
                                         <del class="text-danger">{{ $setting->currency }} {{ $row->selling_price }}</del>

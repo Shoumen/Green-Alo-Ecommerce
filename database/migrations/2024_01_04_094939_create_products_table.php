@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('brand_id')->nullable();
             $table->integer('pickup_point_id')->nullable();
             $table->string('name');
+            $table->string('slug');
             $table->string('code');
             $table->string('unit')->nullable();
             $table->string('tags')->nullable();
@@ -36,9 +37,14 @@ return new class extends Migration
             $table->integer('featured')->nullable();
             $table->integer('today_deal')->nullable();
             $table->integer('status')->nullable();
+            $table->string('product_slider')->nullable();
+            $table->integer('product_views')->nullable();
             $table->integer('flash_deal_id')->nullable();
             $table->integer('cash_on_delivery')->nullable();
             $table->integer('admin_id')->nullable();
+            $table->string('trendy')->nullable();
+            $table->string('date')->nullable();
+            $table->string('month')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');

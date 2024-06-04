@@ -116,7 +116,7 @@
               	{{ $setting->currency }}{{ $product->discount_price }}</div>
             @endif
 					</div>
-
+<!-- https://github.com/Shoumen -->
 
 					<div class="order_info d-flex flex-row">
 						<form action="{{ route('add.to.cart.quickview') }}" method="post" id="add_to_cart">
@@ -180,7 +180,7 @@
 								  </div>
 								</div>
 							</div>
-								
+								<!-- https://github.com/Shoumen -->
 						</form>
 
 					</div>
@@ -225,7 +225,7 @@
 			 <div class="card">
 			  <div class="card-header">
 				<h4>Ratings & Reviews of  {{ $product->name }}</h4>
-			  </div>
+			  </div> <!-- https://github.com/Shoumen -->
 			  
 
 
@@ -345,7 +345,7 @@
 							</form>
 						</div>
 					</div>
-						<br>
+						<br> <!-- https://github.com/Shoumen -->
 
 					{{-- all review of this product --}}	
 						<strong>All review of {{ $product->name }}</strong> <hr>
@@ -435,7 +435,7 @@
 								<div class="viewed_price">{{ $setting->currency }}{{ $row->discount_price }} <span>{{ $setting->currency }}{{ $row->selling_price }}</span></div>
 								@endif
 
-									
+									<!-- https://github.com/Shoumen -->
 									<div class="viewed_name"><a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name, 0, 50) }}</a></div>
 								</div>
 								<ul class="item_marks">

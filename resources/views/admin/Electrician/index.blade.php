@@ -16,7 +16,7 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div>
+    </div> 
     <!-- /.content-header -->
      <section class="content">
       <div class="container-fluid">

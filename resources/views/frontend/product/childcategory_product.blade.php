@@ -46,6 +46,7 @@
 						<div class="sidebar_section">
 							<div class="sidebar_title">Categories</div>
 							<ul class="sidebar_categories">
+								<!-- https://github.com/Shoumen -->
 								@foreach($categories as $row)
 								 <li><a href="{{ route('categorywise.product',$row->id) }}">{{ $row->category_name }}</a></li>
 								@endforeach
@@ -74,6 +75,7 @@
 					</div>
 				</div>
 
+				<!-- https://github.com/Shoumen -->
 				<div class="col-lg-9">
 					
 					<!-- Shop Content -->
@@ -132,6 +134,7 @@
 					</div>
 
 				</div>
+				<!-- https://github.com/Shoumen -->
 			</div>
 		</div>
 	</div>
@@ -176,6 +179,7 @@
                     </div>
                 </div>
             </div>
+			<!-- https://github.com/Shoumen -->
         </div>
     </div>
 

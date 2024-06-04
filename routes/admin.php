@@ -14,8 +14,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 	Route::get('/admin/logout','AdminController@logout')->name('admin.logout');
     Route::get('/admin/password/change','AdminController@PasswordChange')->name('admin.password.change');
     Route::post('/admin/password/update','AdminController@PasswordUpdate')->name('admin.password.update');
-
-	//category routes
+ 
+	//category routes <!-- https://github.com/Shoumen -->
 	Route::group(['prefix'=>'category'], function(){
 		Route::get('/','CategoryController@index')->name('category.index');
 		Route::post('/store','CategoryController@store')->name('category.store');
@@ -26,8 +26,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 
 	//global route
 	Route::get('/get-child-category/{id}','CategoryController@GetChildCategory');
-
-	//subcategory routes
+ 
+	//subcategory routes <!-- https://github.com/Shoumen -->
 	Route::group(['prefix'=>'subcategory'], function(){
 		Route::get('/','SubcategoryController@index')->name('subcategory.index');
 		Route::post('/store','SubcategoryController@store')->name('subcategory.store');
@@ -63,7 +63,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		Route::post('/update','BrandController@update')->name('brand.update');
 	});
 
-	//product routes
+	//product routes <!-- https://github.com/Shoumen -->
 	Route::group(['prefix'=>'product'], function(){
 		Route::get('/','ProductController@index')->name('product.index');
 		Route::get('/create','ProductController@create')->name('product.create');
@@ -77,6 +77,20 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		Route::get('/not-deal/{id}','ProductController@notdeal');
 		Route::get('/active-status/{id}','ProductController@activestatus');
 		Route::get('/not-status/{id}','ProductController@notstatus');
+	});
+	Route::group(['prefix'=>'electrician'], function(){
+		Route::get('/','ElectricianController@index')->name('electrician.index');
+		Route::get('/create','ElectricianController@create')->name('electrician.create');
+		Route::post('/store','ElectricianController@store')->name('electrician.store');
+		// Route::get('/delete/{id}','ElectricianController@destroy')->name('electrician.delete');
+		// Route::get('/edit/{id}','ElectricianControllerr@edit')->name('electrician.edit');
+		// Route::post('/update','ElectricianController@update')->name('electrician.update');
+		// Route::get('/active-featured/{id}','ElectricianController@activefeatured');
+		// Route::get('/not-featured/{id}','ElectricianController@notfeatured');
+		// Route::get('/active-deal/{id}','ElectricianController@activedeal');
+		// Route::get('/not-deal/{id}','ElectricianController@notdeal');
+		// Route::get('/active-status/{id}','ElectricianController@activestatus');
+		// Route::get('/not-status/{id}','ElectricianController@notstatus');
 	});
 
 	//Coupon Routes
@@ -143,7 +157,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 			Route::post('/update-surjopay','SettingController@SurjopayUpdate')->name('update.surjopay');
 	    });
 
-	    //Page setting
+	    //Page setting <!-- https://github.com/Shoumen -->
 		Route::group(['prefix'=>'page'], function(){
 			Route::get('/','PageController@index')->name('page.index');
 			Route::get('/create','PageController@create')->name('create.page');
@@ -192,8 +206,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 			Route::get('/edit/{id}','RoleController@edit')->name('role.edit');
 			Route::post('/update','RoleController@update')->name('update.role');
 		});
-
-	    //__report routes__//
+ 
+	    //__report routes__// <!-- https://github.com/Shoumen -->
 	    Route::group(['prefix'=>'report'], function(){
 			Route::get('/order','OrderController@Reportindex')->name('report.order.index');
 			Route::get('/order/print','OrderController@ReportOrderPrint')->name('report.order.print');

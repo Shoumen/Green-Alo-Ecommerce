@@ -47,7 +47,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/childcategory/product/{id}','IndexController@ChildcategoryWiseProduct')->name('childcategorywise.product');
     Route::get('/brandwise/product/{id}','IndexController@BrandWiseProduct')->name('brandwise.product');
 
-     //setting profile
+     //setting profile <!-- https://github.com/Shoumen -->
     Route::get('/home/setting','ProfileController@setting')->name('customer.setting'); 
     Route::post('/home/password/update','ProfileController@PasswordChange')->name('customer.password.change'); 
 
@@ -55,6 +55,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/view/order/{id}','ProfileController@ViewOrder')->name('view.order'); 
 
     //review for product
+    
     Route::post('/store/review','ReviewController@store')->name('store.review');
     //this review for website not product
     Route::get('/write/review','ReviewController@write')->name('write.review');
@@ -78,7 +79,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     Route::get('/order/tracking','IndexController@OrderTracking')->name('order.tracking');
     Route::post('/check/order','IndexController@CheckOrder')->name('check.order');
 
-    //__payment gateway
+    //__payment gateway <!-- https://github.com/Shoumen -->
     Route::post('/success','CheckoutController@success')->name('success');
     Route::post('/fail','CheckoutController@fail')->name('fail');
     Route::get('/success',function(){

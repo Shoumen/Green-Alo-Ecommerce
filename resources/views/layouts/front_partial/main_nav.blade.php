@@ -25,7 +25,7 @@
                                         <a href="{{ route('categorywise.product',$row->id) }}">
                                           <img src="{{ asset($row->icon) }}" height="18" width="18">  {{ $row->category_name }}<i class="fas fa-chevron-right"></i>
                                         </a>
-                                        <ul>
+                                        <ul>  <!-- https://github.com/Shoumen -->
                                             @foreach($subcategory as $row)
                                             @php
                                                $childcategory=DB::table('childcategories')->where('subcategory_id',$row->id)->get();
@@ -85,7 +85,7 @@
                                 <form action="#">
                                     <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
                                 </form>
-                            </div>
+                            </div>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                             <ul class="page_menu_nav">
                                 <li class="page_menu_item has-children">
                                     <a href="#">Language<i class="fa fa-angle-down"></i></a>
@@ -134,7 +134,7 @@
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
                                     </ul>
-                                </li>
+                                </li>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                                 <li class="page_menu_item has-children">
                                     <a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
                                     <ul class="page_menu_selection">
@@ -147,7 +147,7 @@
                                 <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
                                 <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
                             </ul>
-                            
+                              <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                             <div class="menu_contact">
                                 <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
                                 <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>

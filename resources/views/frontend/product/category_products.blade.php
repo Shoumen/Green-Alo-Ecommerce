@@ -27,6 +27,7 @@
 			                               <a href="{{ route('brandwise.product',$row->id) }}" title="{{ $row->brand_name }}"> <img src="{{ asset($row->brand_logo) }}" alt="{{ $row->brand_name }}" height="50" width="40"> </a>
 			                            </div>
 			                        </div>
+									<!-- https://github.com/Shoumen -->
 			                       @endforeach     
 			                    </div>
 			                    <!-- Brands Slider Navigation -->
@@ -60,6 +61,7 @@
 								<p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
 							</div>
 						</div>
+						<!-- https://github.com/Shoumen -->
 						<div class="sidebar_section">
 							<div class="sidebar_subtitle color_subtitle">Color</div>
 							<ul class="colors_list">
@@ -111,6 +113,7 @@
 										@endif
 										<div class="product_name"><div><a href="{{ route('product.details',$row->slug) }}" tabindex="0">{{ $row->name }}</a></div></div>
 									</div>
+									<!-- https://github.com/Shoumen -->
 									<a href="{{ route('add.wishlist',$row->id) }}">
 									  <div class="product_fav"><i class="fas fa-heart"></i></div>
 									</a>
@@ -170,6 +173,7 @@
                                     
                                 </div>
                             </div>
+							<!-- https://github.com/Shoumen -->
                             @endforeach
 
                         </div>

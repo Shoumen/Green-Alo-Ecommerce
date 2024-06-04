@@ -76,6 +76,7 @@
           </div>
           <div class="row">
           	<div class="col-lg-6">
+              <!-- https://github.com/Shoumen -->
           		<div class="form-group">
           		  <label for="start-date">Start Date <span class="text-danger">*</span></label>
           		  <input type="date" class="form-control"  name="start_date" required="">
@@ -113,6 +114,7 @@
             <small id="emailHelp" class="form-text text-muted">This is your campaign banner </small>
           </div>   
       </div>
+      <!-- https://github.com/Shoumen -->
       <div class="modal-footer">
         <button type="Submit" class="btn btn-primary"> <span class="d-none"> loading..... </span>  Submit</button>
       </div>

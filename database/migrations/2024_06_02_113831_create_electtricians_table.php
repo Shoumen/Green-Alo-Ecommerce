@@ -14,19 +14,20 @@ return new class extends Migration
         Schema::create('electtricians', function (Blueprint $table) {
             $table->id();
             $table->string('elec_name');
-            $table->string('Elec_email')->unique();
+            $table->string('elec_slug');
+            $table->string('elec_email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); 
             $table->string('elec_phone')->nullable();
             $table->boolean('is_admin')->nullable();
-            $table->string('elec_image')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->integer('elec_nid_number')->nullable();
-            $table->string('elce_nid_pic')->nullable();
-            $table->string('elec_emarks', 50)->nullable();
+            $table->string('images')->nullable();
             $table->string('elec_creator', 50)->nullable();
             $table->string('elec_editor', 50)->nullable();
             $table->string('elec_remarks', 50)->nullable();
-            $table->integer('status')->nullable();
+            $table->string('elec_description')->nullable();
+            $table->integer('elec_status')->nullable();
             $table->timestamps();
         });
     }

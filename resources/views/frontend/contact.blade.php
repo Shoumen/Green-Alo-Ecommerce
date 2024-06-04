@@ -20,6 +20,7 @@
 								<div class="contact_info_text">{{ $setting->phone_two }}</div>
 							</div>
 						</div>
+						<!-- https://github.com/Shoumen -->
 
 						<!-- Contact Item -->
 						<div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
@@ -60,6 +61,7 @@
 								<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="Your email" required="required" data-error="Email is required.">
 								<input type="text" id="contact_form_phone" class="contact_form_phone input_field" placeholder="Your phone number">
 							</div>
+							<!-- https://github.com/Shoumen -->
 							<div class="contact_form_text">
 								<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
 							</div>

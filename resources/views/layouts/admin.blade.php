@@ -14,7 +14,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('backend') }}/dist/css/adminlte.min.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/toastr/toastr.css') }}">
- 
+   <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
    <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('backend') }}/plugins/summernote/summernote-bs4.css">
 
@@ -81,7 +81,7 @@
 <script src="{{ asset('/backend') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('/backend/dist/js/pages/dashboard2.js') }}"></script>
-
+ <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
 <script type="text/javascript" src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('backend/plugins/sweetalert/sweetalert.min.js') }}"></script>
 <script>

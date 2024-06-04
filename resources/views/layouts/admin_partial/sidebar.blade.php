@@ -68,6 +68,7 @@
                   <p>Brand</p>
                 </a>
               </li>
+              <!-- https://github.com/Shoumen -->
               <li class="nav-item">
                 <a href="{{ route('warehouse.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -114,7 +115,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('product.create') }}" class="nav-link">
+                <a href="{{ route('electrician.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Electrician</p>
                 </a>
@@ -144,7 +145,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Coupon</p>
                 </a>
-              </li>
+              </li>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
               <li class="nav-item">
                 <a href="{{ route('campaign.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -172,7 +173,7 @@
                   <p>Orders</p>
                 </a>
               </li>
-            </ul>
+            </ul>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
           </li>
           @endif
 
@@ -192,6 +193,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category</p>
                 </a>
+                <!-- https://github.com/Shoumen -->
               </li>
               <li class="nav-item">
                 <a href="{{ route('admin.blog.category') }}" class="nav-link">
@@ -268,6 +270,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
+                <!-- https://github.com/Shoumen -->
                Reports
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -388,6 +391,7 @@
               <p class="text">Password Change</p>
             </a>
           </li>
+          <!-- https://github.com/Shoumen -->
           <li class="nav-item">
             <a href="{{ route('admin.logout') }}" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>

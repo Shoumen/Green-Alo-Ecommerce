@@ -14,7 +14,7 @@
 
                 <div class="card-body">
                    <div class="row">
-                       <div class="col-lg-3">
+                       <div class="col-lg-3">  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                            <a href=""> 
                              <div class="card" >
                                <div class="card-body">
@@ -67,7 +67,7 @@
                              <th scope="col">Status</th>
                            </tr>
                          </thead>
-                         <tbody>
+                         <tbody>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                           @foreach($orders as $row)
                            <tr>
                              <th scope="row">{{ $row->order_id }}</th>

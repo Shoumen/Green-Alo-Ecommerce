@@ -62,7 +62,7 @@
                                     <li>
                                         <a href="#">Login<i class="fas fa-chevron-down"></i></a>
                                         <ul style="width:300px; padding:10px;">
-                                           <div>
+                                           <div>  <!-- https://github.com/Shoumen -->
                                             <strong>login your account</strong><br>
                                             <br>
                                                <form action="{{ route('login') }}" method="post">
@@ -127,7 +127,7 @@
                     <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
 						<div class="header_search">
 							<div class="header_search_content">
-								<div class="header_search_form_container">
+								<div class="header_search_form_container"> <!-- https://github.com/Shoumen -->
 									<form action="#" class="header_search_form clearfix">
 										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
 										<div class="custom_dropdown">
@@ -183,7 +183,7 @@
                                     <div class="cart_icon">
                                         <img src="{{ asset('/frontend') }}/images/cart.png" alt="">
                                         <div class="cart_count"><span class="cart_qty"></span></div>
-                                    </div>
+                                    </div>  <!-- https://github.com/Shoumen -->
                                     <div class="cart_content">
                                         <div class="cart_text"><a href="{{ route('cart') }}" >Cart</a></div>
                                         <div class="cart_price">{{ $setting->currency }} <span class="cart_total"></span></div>
@@ -210,7 +210,7 @@
         $pages_one=DB::table('pages')->where('page_position',1)->get();
         $pages_two=DB::table('pages')->where('page_position',2)->get();
     @endphp
-    <footer class="footer">
+    <footer class="footer">  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
         <div class="container">
             <div class="row">
 
@@ -291,7 +291,7 @@
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="logos ml-sm-auto">
-                            <ul class="logos_list">
+                            <ul class="logos_list">  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
                                 <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
                                 <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
                                 <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
@@ -303,7 +303,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>  <!-- DEVELOPED BY SHOUMEN MONDAL https://github.com/Shoumen-->
 
 <script src="{{ asset('frontend') }}/js/jquery-3.3.1.min.js"></script>
 <script src="{{ asset('frontend') }}/styles/bootstrap4/popper.js"></script>
@@ -351,8 +351,8 @@
               case 'success':
                   toastr.success("{{ Session::get('messege') }}");
                   break;
-              case 'warning':
-                 toastr.warning("{{ Session::get('messege') }}");
+              case 'warning': 
+                 toastr.warning("{{ Session::get('messege') }}"); 
                   break;
               case 'error':
                   toastr.error("{{ Session::get('messege') }}");

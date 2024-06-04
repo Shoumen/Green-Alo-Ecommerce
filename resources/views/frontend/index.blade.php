@@ -656,6 +656,7 @@
                             <div class="char_subtitle">from $50</div>
                         </div>
                     </div>
+                    <!-- https://github.com/Shoumen -->
                 </div>
 
                 <!-- Char. Item -->
@@ -705,7 +706,7 @@
                             <div class="newsletter_title">Sign up for Newsletter</div>
                             <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
-                        <div class="newsletter_content clearfix">
+                        <div class="newsletter_content clearfix"> <!-- https://github.com/Shoumen -->
                             <form action="{{ route('store.newsletter') }}" method="post" class="newsletter_form" id="newsletter_form">
                                 @csrf
                                 <input type="email" name="email" class="newsletter_input" required="required" placeholder="Enter your email address">
