@@ -85,12 +85,8 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		// Route::get('/delete/{id}','ElectricianController@destroy')->name('electrician.delete');
 		// Route::get('/edit/{id}','ElectricianControllerr@edit')->name('electrician.edit');
 		// Route::post('/update','ElectricianController@update')->name('electrician.update');
-		// Route::get('/active-featured/{id}','ElectricianController@activefeatured');
-		// Route::get('/not-featured/{id}','ElectricianController@notfeatured');
-		// Route::get('/active-deal/{id}','ElectricianController@activedeal');
-		// Route::get('/not-deal/{id}','ElectricianController@notdeal');
-		// Route::get('/active-status/{id}','ElectricianController@activestatus');
-		// Route::get('/not-status/{id}','ElectricianController@notstatus');
+		Route::get('/active-status/{id}','ElectricianController@activestatus');
+		Route::get('/not-status/{id}','ElectricianController@notstatus');
 	});
 
 	//Coupon Routes

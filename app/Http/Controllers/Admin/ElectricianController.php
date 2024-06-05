@@ -21,6 +21,32 @@ class ElectricianController extends Controller
     {
         $this->middleware('auth');
     }
+    public function index(Request $request)
+    {
+    	if ($request->ajax()) {
+            $imgurl='files/electrician';
+    		$data=DB::table('electtricians')->get();
+    		return DataTables::of($data)
+    				->addIndexColumn()
+                    // ->editColumn('front_page',function($row){
+                    //     if ($row->front_page==1) {
+                    //         return '<span class="badge badge-success">Home Page</span>';
+                    //     }
+                    // })
+    				->addColumn('action', function($row){
+    					$actionbtn='<a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
+                      	<a href="'.route('brand.delete',[$row->id]).'" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i>
+                      	</a>';
+                       return $actionbtn;
+    				})
+    				// ->rawColumns(['action','front_page'])
+    				->make(true);
+    	}
+
+    	return view('admin.electrician.index');
+    }
+
+
     public function create()
     {
         // $category=DB::table('categories')->get();  // Category::all();
@@ -41,17 +67,22 @@ class ElectricianController extends Controller
             'elec_nid_number' => 'required',
             'elec_description' => 'required',
         ]);
-        $slug=Str::slug($request->name, '-');
+
+        $slug=Str::slug($request->elec_name, '-');
         $creator= Auth::user()->id;
  
  
         $data=array();
         $data['elec_name']=$request->elec_name;
-        $data['elec_slug']=Str::slug($request->name, '-');
+        $data['elec_slug']=Str::slug($request->elec_name, '-');
         $data['elec_phone']=$request->elec_phone;
         $data['elec_email']=$request->elec_email;
         $data['elec_password']=$request->elec_password;
         $data['elec_nid_number']=$request->elec_nid_number;
+        $data['division']=$request->division;
+        $data['district']=$request->district;
+        $data['upazila']=$request->upazila;
+        $data['elec_address']=$request->elec_address;
         $data['elec_description']=$request->elec_description;
         $data['elec_remarks']=$request->elec_remarks;
         $data['elec_status']=$request->elec_status;
@@ -99,5 +130,18 @@ class ElectricianController extends Controller
         // $childcategory=DB::table('childcategories')->where('category_id',$product->category_id)->get();
         // dd($childcategory);
         return view('admin.electrician.edit');
+    }
+    //not status
+    public function notstatus($id)
+    {
+        DB::table('electtricians')->where('id',$id)->update(['status'=>0]);
+        return response()->json('electtrician Deactive');
+    }
+
+    //active staus
+    public function activestatus($id)
+    {
+        DB::table('electtricians')->where('id',$id)->update(['status'=>1]);
+        return response()->json('electtrician Activated');
     }
 }

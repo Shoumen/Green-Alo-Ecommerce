@@ -22,7 +22,10 @@ return new class extends Migration
             $table->boolean('is_admin')->nullable();
             $table->string('thumbnail')->nullable();
             $table->integer('elec_nid_number')->nullable();
-            $table->string('images')->nullable();
+            $table->string('division')->nullable();
+            $table->string('district')->nullable();
+            $table->string('upazila')->nullable();
+            $table->string('elec_address')->nullable();
             $table->string('elec_creator', 50)->nullable();
             $table->string('elec_editor', 50)->nullable();
             $table->string('elec_remarks', 50)->nullable();

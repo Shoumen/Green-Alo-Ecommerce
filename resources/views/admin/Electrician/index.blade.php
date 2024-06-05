@@ -7,11 +7,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Product</h1>
+            <h1 class="m-0">Electrician</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{ route('product.create') }}" class="btn btn-primary" > + Add New</a>
+              <a href="{{ route('electrician.create') }}" class="btn btn-primary" > + Add New</a>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,34 +24,34 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All Product List </h3>
+                <h3 class="card-title">All Electrician List </h3>
               </div><br>
               <div class="row p-2">
               	<div class="form-group col-3">
-              		<label>Category</label>
+              		<label>Division</label>
               		 <select class="form-control submitable" name="category_id" id="category_id">
               		 	<option value="">All</option>
-              		 	  @foreach($category as $row)
-              		 	    <option value="{{ $row->id }}">{{ $row->category_name }}</option>
-              		 	  @endforeach  
+              		 	 
+              		 	    <option value=""></option>
+              		 	   
               		 </select>
               	</div>
               	<div class="form-group col-3">
-              		<label>Brand</label>
+              		<label>District</label>
               		 <select class="form-control submitable" name="brand_id" id="brand_id">
               		 	<option value="">All</option>
-              		 	  @foreach($brand as $row)
-              		 	    <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-              		 	  @endforeach  
+              		 	  
+              		 	    <option value=""></option>
+              		 	  
               		 </select>
               	</div>
               	<div class="form-group col-3">
-              		<label>warehouses</label>
+              		<label>Upazila/Thana</label>
               		 <select class="form-control submitable" name="warehouse" id="warehouse">
               		 	<option value="">All</option>
-              		 	  @foreach($warehouses as $row)
-              		 	    <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-              		 	  @endforeach  
+              		 	  
+              		 	    <option value=""></option>
+              		 	  
               		 </select>
               	</div>
               	<div class="form-group col-3">
@@ -69,15 +69,12 @@
                     <thead>
                     <tr>
                       <th>SL</th>
-                      <th>Thumbnail</th>
-                      <th>Name</th>
-                      <th>Code</th>
-                      <th>Category</th>
-                      <th>Subcategory</th>
-                      <th>Brand</th>
-                      <th>Featured</th>
-                      <th>Today Deal</th>
-                      <th>Status</th>
+                      <th>Image</th>
+                      <th>Elec_Name</th>
+                      <th>Elec_Phone</th>
+                      <th>Elec_Creator</th>
+                      <th>Elec_Editor</th>
+                      <th>Elec_Status</th>
                       <th>Action</th>
                     </tr>
                     </thead>
@@ -99,96 +96,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script type="text/javascript">
-	$(function products(){
+	$(function electtricians(){
 		table=$('.ytable').DataTable({
 			"processing":true,
       "serverSide":true,
       "searching":true,
       "ajax":{
-        "url": "{{ route('product.index') }}", 
+        "url": "{{ route('electrician.index') }}", 
         "data":function(e) {
-          e.category_id =$("#category_id").val();
-          e.brand_id =$("#brand_id").val();
-          e.status =$("#status").val();
-          e.warehouse =$("#warehouse").val();
+          e.electrician_name =$("#electrician_name").val();
+        //   e.brand_id =$("#brand_id").val();
+        //   e.status =$("#status").val();
+        //   e.warehouse =$("#warehouse").val();
         }
       },
 			columns:[
 				{data:'DT_RowIndex',name:'DT_RowIndex'},
 				{data:'thumbnail'  ,name:'thumbnail'},
-				{data:'name'  ,name:'name'},
-				{data:'code'  ,name:'code'},
-				{data:'category_name',name:'category_name'},
-				{data:'subcategory_name',name:'subcategory_name'},
-				{data:'brand_name',name:'brand_name'},
-				{data:'featured',name:'featured'},
-				{data:'today_deal',name:'today_deal'},
-				{data:'status',name:'status'},
+				{data:'elec_name'  ,name:'elec_name'},
+				{data:'elec_phone'  ,name:'elec-phone'},
+				{data:'elec_creator',name:'elec_creator'},
+				{data:'elec_editor',name:'elec_editor'},
+				
+				{data:'elec_status',name:'elec_status'},
 				{data:'action',name:'action',orderable:true, searchable:true},
 			]
 		});
 	});
 
-	//deactive featured
-	$('body').on('click','.deactive_featurd', function(){
-	    var id=$(this).data('id');
-		var url = "{{ url('product/not-featured') }}/"+id;
-		$.ajax({
-			url:url,
-			type:'get',
-			success:function(data){  
-	        toastr.success(data);
-	        table.ajax.reload();
-	      }
-	  });
-    });
-
-    //Active featured
-	$('body').on('click','.active_featurd', function(){
-	    var id=$(this).data('id');
-		var url = "{{ url('product/active-featured') }}/"+id;
-		$.ajax({
-			url:url,
-			type:'get',
-			success:function(data){  
-	        toastr.success(data);
-	        table.ajax.reload();
-	      }
-	  });
-    });
-
-    //deactive today deal
-	$('body').on('click','.deactive_deal', function(){
-	   var id=$(this).data('id');
-		var url = "{{ url('product/not-deal') }}/"+id;
-		$.ajax({
-			url:url,
-			type:'get',
-			success:function(data){  
-	        toastr.success(data);
-	        table.ajax.reload();
-	      }
-	  });
-    });
-
-    //Active today deal
-	$('body').on('click','.active_deal', function(){
-	    var id=$(this).data('id');
-		var url = "{{ url('product/active-deal') }}/"+id;
-		$.ajax({
-			url:url,
-			type:'get',
-			success:function(data){  
-	        toastr.success(data);
-	        table.ajax.reload();
-	      }
-	  });
-    });
 
     //deactive status
 	$('body').on('click','.deactive_status', function(){
 	    var id=$(this).data('id');
-		var url = "{{ url('product/not-status') }}/"+id;
+		var url = "{{ url('electrician/not-status') }}/"+id;
 		$.ajax({
 			url:url,
 			type:'get',
@@ -202,7 +142,7 @@
     //Active status
 	$('body').on('click','.active_status', function(){
 	    var id=$(this).data('id');
-		var url = "{{ url('product/active-status') }}/"+id;
+		var url = "{{ url('electrician/active-status') }}/"+id;
 		$.ajax({
 			url:url,
 			type:'get',

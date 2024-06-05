@@ -27,7 +27,7 @@
                 <h3 class="card-title">All Product List </h3>
               </div><br>
               <div class="row p-2">
-              	<div class="form-group col-3">
+              	<div class="form-group col-2">
               		<label>Category</label>
               		 <select class="form-control submitable" name="category_id" id="category_id">
               		 	<option value="">All</option>
@@ -36,7 +36,16 @@
               		 	  @endforeach  
               		 </select>
               	</div>
-              	<div class="form-group col-3">
+				  <div class="form-group col-2">
+              		<label>Sub_Category</label>
+              		 <select class="form-control submitable" name="subcategory_id" id="subcategory_id">
+              		 	<option value="">All</option>
+              		 	  @foreach($subcategory as $row)
+              		 	    <option value="{{ $row->id }}">{{ $row->subcategory_name }}</option>
+              		 	  @endforeach  
+              		 </select>
+              	</div>
+              	<div class="form-group col-2">
               		<label>Brand</label>
               		 <select class="form-control submitable" name="brand_id" id="brand_id">
               		 	<option value="">All</option>
@@ -45,7 +54,7 @@
               		 	  @endforeach  
               		 </select>
               	</div>
-              	<div class="form-group col-3">
+              	<div class="form-group col-2">
               		<label>warehouses</label>
               		 <select class="form-control submitable" name="warehouse" id="warehouse">
               		 	<option value="">All</option>
@@ -54,7 +63,7 @@
               		 	  @endforeach  
               		 </select>
               	</div>
-              	<div class="form-group col-3">
+              	<div class="form-group col-2">
               		<label>Status</label>
               		 <select class="form-control submitable" name="status" id="status">
               		 	<option value="1">All</option>
