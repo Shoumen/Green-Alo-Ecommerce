@@ -139,7 +139,7 @@
 		</div>
 	</div>
 
-	    <div class="viewed">
+	<div class="viewed">
         <div class="container">
             <div class="row">
                 <div class="col">

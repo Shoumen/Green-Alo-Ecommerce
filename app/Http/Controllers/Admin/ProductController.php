@@ -168,7 +168,7 @@ class ProductController extends Controller
             $image = $request->file('thumbnail');
             $photoname=$slug.'.'.$image->getClientOriginalExtension();
             $image = $manager->read($image);
-            $image = $image->resize(600,600);
+            $image = $image->resize(800,800);
             $image->save('files/product/'.$photoname);
             $data['thumbnail']=$photoname;   // public/files/product/plus-point.jpg
 
@@ -180,7 +180,7 @@ class ProductController extends Controller
            foreach ($request->file('images') as $key => $image) {
                $imageName= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                $image = $manager->read($image);
-               $image = $image->resize(600,600)->save('files/product/'.$imageName);
+               $image = $image->resize(800,800)->save('files/product/'.$imageName);
                array_push($images, $imageName);
            }
            $data['images'] = json_encode($images);
@@ -258,7 +258,7 @@ class ProductController extends Controller
              $thumbnail=$request->thumbnail;
              $photoname=$slug.'.'.$thumbnail->getClientOriginalExtension();
             $thumbnail = $manager->read($thumbnail);
-            $thumbnail = $thumbnail->resize(600,600)->save('files/product/'.$photoname);
+            $thumbnail = $thumbnail->resize(800,800)->save('files/product/'.$photoname);
             //  Image::make($thumbnail)->resize(600,600)->save('public/files/product/'.$photoname);
              $data['thumbnail']=$photoname;   // public/files/product/plus-point.jpg   
         }
@@ -279,7 +279,7 @@ class ProductController extends Controller
             foreach ($request->file('images') as $key => $image) {
                 $imageName= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                $image = $manager->read($image);
-               $image = $image->resize(600,600)->save('files/product/'.$imageName);
+               $image = $image->resize(800,800)->save('files/product/'.$imageName);
                array_push($images, $imageName);
             }
             $data['images'] = json_encode($images);

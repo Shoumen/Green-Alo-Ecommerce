@@ -54,159 +54,31 @@
         </div>
      @endif
     @endisset
-    <!-- Characteristics -->
+   
+    
 
-    <!-- <div class="characteristics">
-        <div class="container">
-            <div class="row">
-               @foreach($brand as $row) 
-                <div class="col-lg-1 col-md-6 char_col" style="border:1px solid grey; padding:5px;">
-                    <div class="brands_item">
-                       <a href="{{ route('brandwise.product',$row->id) }}" title="{{ $row->brand_name }}"> 
-                        <img src="{{ asset($row->brand_logo) }}" alt="{{ $row->brand_name }}" height="100%" width="100%"> 
-                       </a>
-                    </div>
-                </div>
-               @endforeach
-            </div>
-        </div>
-    </div> -->
-
-    <!-- Deals of the week -->
-
-    <div class="deals_featured">
+    <div class="deals_featured ">
         <div class="container">
             <div class="row">
                 <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
                     
                     <!-- Deals -->
 
-                    <div class="deals">
-                        <div class="deals_title">Deals of the Week</div>
-                        <div class="deals_slider_container">
-                            
-                            <!-- Deals Slider -->
-                            <div class="owl-carousel owl-theme deals_slider">
-                                
-                               @foreach($todaydeal as $row)    
-                                <!-- Deals Item -->
-                                <div class="owl-item deals_item">
-                                    <div class="deals_image"><img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}"></div>
-                                    <div class="deals_content">
-                                        <div class="deals_info_line d-flex flex-row justify-content-start">
-                                            <div class="deals_item_category"><a href="#">{{ $row->subcategory->subcategory_name }}</a></div>
-                                            @if($row->discount_price==NULL)
-                                                 <div class="deals_item_price_a ml-auto">{{ $setting->currency }}{{ $row->selling_price }}</div>
-                                               @else
-                                                 <div class="deals_item_price_a ml-auto">{{ $setting->currency }} {{ $row->discount_price }}</div>
-                                               @endif
-                                        </div>
-                                        <div class="deals_info_line d-flex flex-row justify-content-start">
-                                            <div class="deals_item_name">
-                                               <a href="{{ route('product.details',$row->slug) }}">
-                                                    {{ $row->name }}
-                                               </a></div>
-                                                
-                                         
-                                        </div>
-                                        <div class="available">
-                                            <div class="available_line d-flex flex-row justify-content-start">
-                                                <div class="available_title">Available: <span>{{ $row->stock_quantity }}</span></div>
-                                                <div class="sold_title ml-auto">Already sold: <span>28</span></div>
-                                            </div>
-                                            <div class="available_bar"><span style="width:17%"></span></div>
-                                        </div>
-                                        <div class="deals_timer d-flex flex-row align-items-center justify-content-start">
-                                            <div class="deals_timer_title_container">
-                                                <div class="deals_timer_title">Hurry Up</div>
-                                                <div class="deals_timer_subtitle">Offer ends in:</div>
-                                            </div>
-                                            <div class="deals_timer_content ml-auto">
-                                                <div class="deals_timer_box clearfix" data-target-time="">
-                                                    <div class="deals_timer_unit">
-                                                        <div id="deals_timer1_hr" class="deals_timer_hr"></div>
-                                                        <span>hours</span>
-                                                    </div>
-                                                    <div class="deals_timer_unit">
-                                                        <div id="deals_timer1_min" class="deals_timer_min"></div>
-                                                        <span>mins</span>
-                                                    </div>
-                                                    <div class="deals_timer_unit">
-                                                        <div id="deals_timer1_sec" class="deals_timer_sec"></div>
-                                                        <span>secs</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                               
-                            </div>
-
-                        </div>
-
-                        <div class="deals_slider_nav_container">
-                            <div class="deals_slider_prev deals_slider_nav"><i class="fas fa-chevron-left ml-auto"></i></div>
-                            <div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
-                        </div>
-                    </div>
-                    
+                     
                     <!-- Featured product section -->
-                    <div class="featured">
+                    <div class="featured col-lg-12">
                         <div class="tabbed_container">
                             <div class="tabs">
                                 <ul class="clearfix">
-                                    <li class="active">Featured</li>
-                                    <li>Most Popular</li>
+                                <li class="active">Most Popular</li>
+                                    <li >Featured</li>
+                                    
                                     
                                 </ul>
                                 <div class="tabs_line"><span></span></div>
                             </div>
 
-                            <!-- Product Panel -->
-                            <div class="product_panel panel active">
-                                <div class="featured_slider slider">
-                                    @foreach($featured as $row)
-                                    <!-- Slider Item -->
-                                    <div class="featured_slider_item">
-                                        <div class="border_active"></div>
-                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                                <img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}" height="100%" width="60%">
-                                            </div>
-                                            <div class="product_content">
-                                                @if($row->discount_price==NULL)
-                                                  <div class="product_price discount">{{ $setting->currency }}{{ $row->selling_price }}</div>
-                                                @else
-                                                  <div class="product_price discount">{{ $setting->currency }} {{ $row->discount_price }}<span>{{ $setting->currency }} {{ $row->selling_price }}</span></div>
-                                                @endif  
-                                                <div class="product_name"><div>
-                                                    <a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name,0,20) }}..</a></div>
-                                                </div>
-                                                <div class="product_extras">
-                                                    <div class="product_color">
-                                                       <a href="#" class="quick_view" id="{{ $row->id }}" data-toggle="modal" data-target="#exampleModalCenter">quick view</a>
-                                                    </div>
-                                                    <button class="product_cart_button quick_view"  id="{{ $row->id }}" data-toggle="modal" data-target="#exampleModalCenter">Add to Cart</button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ route('add.wishlist',$row->id) }}">
-                                               <div class="product_fav">
-                                                  <i class="fas fa-heart"></i>
-                                               </div>
-                                            </a>
-                                            <ul class="product_marks">
-                                                <li class="product_mark product_discount">new</li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                 </div>
-                                <div class="featured_slider_dots_cover"></div>
-                            </div>
-
+                           
                             <!-- most popular product  Panel -->
 
                             <div class="product_panel panel">
@@ -250,6 +122,49 @@
                                 </div>
                                 <div class="featured_slider_dots_cover"></div>
                             </div>
+                             <!-- Product Panel -->
+                             <div class="product_panel panel active">
+                                <div class="featured_slider slider">
+                                    @foreach($featured as $row)
+                                    <!-- Slider Item -->
+                                    <div class="featured_slider_item">
+                                        <div class="border_active"></div>
+                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                <img src="{{ asset('files/product/'.$row->thumbnail) }}" alt="{{ $row->name }}" height="100%" width="60%">
+                                            </div>
+                                            <div class="product_content">
+                                                @if($row->discount_price==NULL)
+                                                  <div class="product_price discount">{{ $setting->currency }}{{ $row->selling_price }}</div>
+                                                @else
+                                                  <div class="product_price discount">{{ $setting->currency }} {{ $row->discount_price }}<span>{{ $setting->currency }} {{ $row->selling_price }}</span></div>
+                                                @endif  
+                                                <div class="product_name"><div>
+                                                    <a href="{{ route('product.details',$row->slug) }}">{{ substr($row->name,0,20) }}..</a></div>
+                                                </div>
+                                                <div class="product_extras">
+                                                    <div class="product_color">
+                                                       <a href="#" class="quick_view" id="{{ $row->id }}" data-toggle="modal" data-target="#exampleModalCenter">quick view</a>
+                                                    </div>
+                                                    <button class="product_cart_button quick_view"  id="{{ $row->id }}" data-toggle="modal" data-target="#exampleModalCenter">Add to Cart</button>
+                                                </div>
+                                            </div>
+                                            <a href="{{ route('add.wishlist',$row->id) }}">
+                                               <div class="product_fav">
+                                                  <i class="fas fa-heart"></i>
+                                               </div>
+                                            </a>
+                                            <ul class="product_marks">
+                                                <li class="product_mark product_discount">new</li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                 </div>
+                                <div class="featured_slider_dots_cover"></div>
+                            </div>
+
 
                             <!-- Product Panel -->
 

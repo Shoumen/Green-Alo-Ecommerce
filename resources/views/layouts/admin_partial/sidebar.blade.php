@@ -379,6 +379,31 @@
             </ul>
           </li>
           @endif
+          @if(Auth::user()->userrole==1)
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+              Business Partner
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('create.partner') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create New Partner</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('manage.partner') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Partner</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endif
 
 
 

@@ -118,7 +118,7 @@
                     <div class="col-lg-2 col-sm-3 col-3 order-1">
                         <div class="logo_container">
                         <a href="{{('/') }}" class="brand-link">
-                            <div class="logo"> <img src="{{ asset( $setting->logo ) }}" height="55px;"></div>
+                            <div class="logo"> <img src="{{ asset( $setting->logo ) }}" width="180" height="55px;"></div>
                         </a>
                         </div>
                     </div>
@@ -131,19 +131,19 @@
 									<form action="#" class="header_search_form clearfix">
 										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
 										<div class="custom_dropdown">
-											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
-												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
-												</ul>
-											</div>
-										</div>
+                                            <div class="custom_dropdown_list">
+                                                <span class="custom_dropdown_placeholder clc">All Categories</span>
+                                                <i class="fas fa-chevron-down"></i>
+                                                <ul class="custom_list clc">
+                                                    <li><a class="clc" href="#">All Categories</a></li>
+                                                    <li><a class="clc" href="#">Computers</a></li>
+                                                    <li><a class="clc" href="#">Laptops</a></li>
+                                                    <li><a class="clc" href="#">Cameras</a></li>
+                                                    <li><a class="clc" href="#">Hardware</a></li>
+                                                    <li><a class="clc" href="#">Smartphones</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
 										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{ asset('frontend') }}/images/search.png" alt=""></button>
 									</form>
                                     
@@ -175,21 +175,24 @@
                                     <div class="wishlist_text"><a href="{{ route('wishlist') }}"></a></div>
                                     <div class="wishlist_count">{{ $wishlist }}</div>
                                 </div>
+                                
                             </div>
+                            
 
                                  <!-- Cart -->
                                 <div class="cart">
-                                <div class="cart_container d-flex flex-row align-items-center justify-content-end">
-                                    <div class="cart_icon">
-                                        <img src="{{ asset('/frontend') }}/images/cart.png" alt="">
-                                        <div class="cart_count"><span class="cart_qty"></span></div>
-                                    </div>  <!-- https://github.com/Shoumen -->
-                                    <div class="cart_content">
-                                        <div class="cart_text"><a href="{{ route('cart') }}" >Cart</a></div>
-                                        <div class="cart_price">{{ $setting->currency }} <span class="cart_total"></span></div>
+                                    <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                                        <div class="cart_icon">
+                                            <img src="{{ asset('/frontend') }}/images/cart.png" alt="">
+                                            <div class="cart_count"><span class="cart_qty"></span></div>
+                                        </div>  <!-- https://github.com/Shoumen -->
+                                        <div class="cart_content">
+                                            <div class="cart_text"><a href="{{ route('cart') }}" >Cart</a></div>
+                                            <div class="cart_price">{{ $setting->currency }} <span class="cart_total"></span></div>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -218,7 +221,7 @@
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
                             <div class="logo">
-                                <img src="{{ asset( $setting->logo ) }}" height="80px;">
+                                <img src="{{ asset( $setting->logo ) }}" width="300" height="70px;">
                             </div>
                         </div>
                         <div class="footer_title">Got Question? Call Us 24/7</div>
@@ -346,6 +349,7 @@
           var type="{{Session::get('alert-type','info')}}"
           switch(type){
               case 'info':
+                // https://github.com/Shoumen
                    toastr.info("{{ Session::get('messege') }}");
                    break;
               case 'success':

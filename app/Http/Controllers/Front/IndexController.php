@@ -149,6 +149,10 @@ class IndexController extends Controller
    {
        return view('frontend.contact');
    }
+   public function Electrician()
+   {
+       return view('frontend.electrician.electrician');
+   }
 
    //__blog page
    public function Blog()

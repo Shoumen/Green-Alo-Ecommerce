@@ -12,6 +12,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Exceptions\DecoderException;
 use Intervention\Image\Decoders\Base64ImageDecoder;
 use Intervention\Image\Decoders\FilePathImageDecoder;
+use App\Models\electrician;
 use DataTables;
 use File;
 
@@ -25,21 +26,34 @@ class ElectricianController extends Controller
     {
     	if ($request->ajax()) {
             $imgurl='files/electrician';
+            // $data=electrician::latest()->all();
     		$data=DB::table('electtricians')->get();
     		return DataTables::of($data)
     				->addIndexColumn()
-                    // ->editColumn('front_page',function($row){
-                    //     if ($row->front_page==1) {
-                    //         return '<span class="badge badge-success">Home Page</span>';
-                    //     }
+                    ->editColumn('thumbnail',function($row) use( $imgurl){
+                        return '<img src="'.$imgurl.'/'.$row->thumbnail.'" hright="30" width="30">';
+                     })
+
+
+                    // ->editColumn('user',function($row){
+                    //    return $row->user->name;
                     // })
+                    ->editColumn('elec_status',function($row){
+                        if ($row->elec_status==1) {
+                            return '<a href="#" data-id="'.$row->id.'" class="deactive_status"><i class="fas fa-thumbs-down text-danger"></i> <span class="badge badge-success">active</span> </a>';
+                        }else{
+                            return '<a href="#" data-id="'.$row->id.'" class="active_status"><i class="fas fa-thumbs-up text-danger"></i> <span class="badge badge-danger">deactive</span> </a>';
+                        }
+                    })
     				->addColumn('action', function($row){
-    					$actionbtn='<a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
+    					$actionbtn='
+                        <a href="#" class="btn btn-info btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>
+                        <a href="#" class="btn btn-primary btn-sm edit" data-id="'.$row->id.'" data-toggle="modal" data-target="#editModal" ><i class="fas fa-eye"></i></a>
                       	<a href="'.route('brand.delete',[$row->id]).'" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i>
                       	</a>';
                        return $actionbtn;
     				})
-    				// ->rawColumns(['action','front_page'])
+    				->rawColumns(['action','name','thumbnail','elec_status'])
     				->make(true);
     	}
 

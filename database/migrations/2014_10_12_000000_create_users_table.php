@@ -34,6 +34,11 @@ return new class extends Migration
             $table->integer('report')->default(0)->nullable();
             $table->integer('setting')->default(0)->nullable();
             $table->integer('userrole')->default(0)->nullable();
+            $table->integer('sales_patner')->default(0)->nullable();
+            $table->integer('commission_rate')->nullable();
+            $table->integer('is_partner')->nullable();
+            $table->integer('partner_role')->nullable();
+            $table->string('partner_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

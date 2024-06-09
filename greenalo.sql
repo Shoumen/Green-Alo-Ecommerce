@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 01:35 PM
+-- Generation Time: Jun 08, 2024 at 01:29 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -207,6 +207,48 @@ INSERT INTO `coupons` (`id`, `coupon_code`, `valid_date`, `type`, `coupon_amount
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `electtricians`
+--
+
+CREATE TABLE `electtricians` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `elec_name` varchar(255) NOT NULL,
+  `elec_slug` varchar(255) NOT NULL,
+  `elec_email` varchar(255) NOT NULL,
+  `elec_password` varchar(255) NOT NULL,
+  `elec_phone` varchar(255) DEFAULT NULL,
+  `is_admin` tinyint(1) DEFAULT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `elec_nid_number` int(11) DEFAULT NULL,
+  `division` varchar(255) DEFAULT NULL,
+  `district` varchar(255) DEFAULT NULL,
+  `upazila` varchar(255) DEFAULT NULL,
+  `elec_address` varchar(255) DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  `elec_creator` varchar(50) DEFAULT NULL,
+  `elec_editor` varchar(50) DEFAULT NULL,
+  `elec_remarks` varchar(50) DEFAULT NULL,
+  `elec_description` varchar(255) DEFAULT NULL,
+  `elec_status` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `electtricians`
+--
+
+INSERT INTO `electtricians` (`id`, `elec_name`, `elec_slug`, `elec_email`, `elec_password`, `elec_phone`, `is_admin`, `thumbnail`, `elec_nid_number`, `division`, `district`, `upazila`, `elec_address`, `images`, `elec_creator`, `elec_editor`, `elec_remarks`, `elec_description`, `elec_status`, `created_at`, `updated_at`) VALUES
+(10, 'Honorato Slater', '', 'xajuhys@mailinator.com', 'Enim sed esse quis', '+1 (172) 593-3424', NULL, '.jpg', 14, 'Adipisicing consequa', 'Perferendis aliqua', 'Corporis minima elit', 'Tenetur aliquid nisi', '[\"1800921592935769.jpg\",\"1800921592974438.jpg\"]', '1', NULL, 'Ipsum non ut ut quas', 'Expedita consequuntu', 1, NULL, NULL),
+(11, 'Fuller Russo', '', 'corydepob@mailinator.com', 'Maiores irure autem', '+1 (511) 379-4716', NULL, '.jpg', 389, 'Consectetur sunt d', 'Vel ut quidem eligen', 'Ut at exercitation q', 'Minima culpa amet', '[\"1800921757195339.jpg\",\"1800921757267652.jpg\"]', '1', NULL, 'Excepturi aut qui qu', 'Dolor sit ad labori', 1, NULL, NULL),
+(12, 'Xerxes Higgins', '', 'kycasa@mailinator.com', 'Nihil eu veniam eum', '+1 (391) 575-3103', NULL, '.jpg', 318, 'Earum corporis et la', 'Voluptatem Sunt al', 'Debitis ducimus lor', 'Sint temporibus mol', '[\"1800921919678785.jpg\",\"1800921919718537.jpg\"]', '1', NULL, 'Tempor quidem minus', 'Ad nisi exercitation', 1, NULL, NULL),
+(13, 'Mollie Baird', '', 'hywupery@mailinator.com', 'Incididunt velit rer', '+1 (937) 709-8861', NULL, '.jpg', 702, 'Quia ad culpa volupt', 'Accusamus consectetu', 'Illo voluptate nulla', 'Voluptatem molestia', NULL, '1', NULL, 'Sed tempora mollitia', 'Accusamus aliquid cu', 1, NULL, NULL),
+(14, 'Kyle Meyers', 'kyle-meyers', 'tuqa@mailinator.com', 'Natus voluptatibus t', '+1 (435) 639-8977', NULL, 'kyle-meyers.jpg', 287, 'Sapiente sunt eveni', 'Inventore enim Nam r', 'Ipsa quibusdam et q', 'Nulla quia officia i', NULL, '1', NULL, 'Quam reiciendis opti', 'Est qui perspiciati', 1, NULL, NULL),
+(15, 'Tarik Cross', 'tarik-cross', 'denonuq@mailinator.com', 'Adipisicing sed adip', '+1 (839) 141-2255', NULL, 'tarik-cross.png', 593, 'Proident in aliquid', 'Laborum hic placeat', 'In exercitation impe', 'Non dignissimos duis', NULL, '1', NULL, 'Saepe dolorem debiti', 'In tempor quo maiore', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -269,7 +311,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2024_03_20_095759_create_blogs_table', 1),
 (31, '2024_03_22_084157_create__childcategories_table', 2),
 (32, '2024_03_22_084428_create_childcategories_table', 3),
-(33, '2024_03_22_085712_create_brands_table', 4);
+(33, '2024_03_22_085712_create_brands_table', 4),
+(34, '2024_06_02_113831_create_electtricians_table', 5);
 
 -- --------------------------------------------------------
 
@@ -518,49 +561,49 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `childcategory_id`, `brand_id`, `pickup_point_id`, `name`, `slug`, `code`, `unit`, `tags`, `color`, `size`, `video`, `purchase_price`, `selling_price`, `discount_price`, `stock_quantity`, `warehouse`, `description`, `thumbnail`, `images`, `featured`, `today_deal`, `status`, `product_slider`, `product_views`, `flash_deal_id`, `cash_on_delivery`, `admin_id`, `trendy`, `date`, `month`, `created_at`, `updated_at`) VALUES
-(8, 8, 31, 33, 24, 2, 'Switch', 'switch', '111', '12', 'switch,piano switch', 'Black,Red,white', NULL, '18251331', '20', '30', NULL, '12', 1, 'switch ........................kuy8w..........', 'switch.png', '[\"1799380849679780.jpg\",\"1799380849942110.webp\"]', 1, 1, 1, '1', 54, NULL, NULL, 1, '1', '18-05-2024', 'May', NULL, '2024-05-20 01:44:58'),
-(9, 8, 31, 34, 24, 2, 'Board Switch', 'board-switch', '22', '13', 'switch,main Switch,]', 'black,red,White', 'Small,midium,large', '1354912', '200', '300', NULL, '5', 1, 'switch ...................sdnmguytg  /////', 'board-switch.jpg', '[\"1799381204703704.jpg\",\"1799381204922100.jpeg\"]', 1, 1, 1, '1', 4, NULL, NULL, 1, '1', '18-05-2024', 'May', NULL, '2024-05-18 03:36:50'),
-(10, 8, 31, 35, 23, 2, 'calling bell Switch', 'calling-bell-switch', '14', '100', 'calling bel,flat switch,super star switch', 'white,black,red', 'small,Medium,large', '13+7321', '200', '300', NULL, '15', 1, 'callling bell ..........mnhtyd/............st87v', 'switch.webp', '[\"1799382371170046.jpg\",\"1799382371300858.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '18-05-2024', 'May', NULL, '2024-05-18 03:39:56'),
-(11, 11, 29, 42, 22, 2, 'Dacey Cash', 'dacey-cash', 'Dolore aliquam volup', 'Soluta nulla qui ame', 'Aliquam consequatur', 'Veritatis recusandae', 'Et commodi consectet', 'Dolore ipsa hic est', '297', '266', '151', '16', 1, 'Dolore pariatur Non', 'dacey-cash.jpeg', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(12, 10, 27, 39, 22, 2, 'Maia Jennings', 'maia-jennings', 'Rem cupiditate quisq', 'Sit dolor ea libero', 'Exercitationem accus', 'Eligendi duis ut lab', 'Voluptate et hic ist', 'Qui illo voluptas in', '425', '162', '147', '897', 1, 'Consequuntur sed dol', 'maia-jennings.JPG', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(13, 10, 27, 39, 22, 2, 'Walter Cruz', 'walter-cruz', 'Aliquip ab nisi qui', 'Itaque nisi consecte', 'Dolore qui molestias', 'Magni dolorem numqua', 'In natus assumenda q', 'Et anim totam except', '628', '743', '622', '312', 1, 'Suscipit rem sapient', 'walter-cruz.jpg', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(14, 12, 28, 45, 27, 2, 'Thomas Workman', 'thomas-workman', 'Culpa ut accusantiu', 'Id sed qui sed sequi', 'Et deserunt exercita', 'Sint nostrum cupida', 'Adipisicing rerum te', 'Et tempore nobis su', '192', '15', '940', '161', 1, 'Odio do consequatur', 'thomas-workman.JPG', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(15, 10, 27, 39, 26, 2, 'Wang Santana', 'wang-santana', 'Qui fugit dolorem n', 'Irure quas vitae aut', 'In officia voluptati', 'Nisi qui voluptatem', 'Iste aut sit aut ali', 'Nemo lorem est velit', '948', '477', '679', '716', 1, 'Deserunt molestiae s', 'wang-santana.png', NULL, 1, 1, 1, NULL, NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(16, 10, 27, 39, 22, 2, 'Uriah Wilkinson', 'uriah-wilkinson', 'Qui excepturi et a u', 'Quaerat ipsa placea', 'Quo perferendis aute', 'Et irure eius dolore', 'Veniam adipisicing', 'Corporis tempora inv', '693', '28', '268', '459', 1, 'Voluptatem Quia qui', 'uriah-wilkinson.jpg', NULL, 1, 1, 1, NULL, NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(17, 12, 28, 45, 30, 3, 'Allen Wagner', 'allen-wagner', 'Magnam laborum neque', 'Reprehenderit molest', 'Vel ipsum deserunt n,Et iusto in quia max', 'Dolores sed temporib,Ab eos est rerum nos', 'Maiores non beatae r,Et aliqua Architect', 'Assumenda autem offi', '704', '763', '509', '80', 1, 'Ut eum facilis conse', 'allen-wagner.JPG', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(18, 8, 31, 33, 22, 2, 'Julian Acevedo', 'julian-acevedo', 'Omnis ullam unde com', 'Perspiciatis velit', 'Enim ut fuga Facili', 'Nulla consectetur ad', 'Nulla et perspiciati', 'Aut dolor aut dolore', '497', '253', '682', '213', 1, 'Ut dolorem qui et qu', 'julian-acevedo.JPG', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(19, 9, 30, 36, 22, 2, 'Stacey Mann', 'stacey-mann', 'Ipsa libero dolore', 'Commodi dolore deser', 'Ullam aliquip ex dol', 'Velit velit ut veni', 'Est consequatur nobi', 'Ex earum velit sint', '724', '234', '109', '608', 1, 'Non voluptates in ul', 'stacey-mann.png', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, '2024-05-19 00:59:57'),
-(20, 11, 29, 42, 22, 2, 'Giselle Guthrie', 'giselle-guthrie', 'Libero occaecat reic', 'Velit eos reprehend', 'Sunt autem vel eius', 'Iste aliqua Exercit', 'Omnis sapiente et cu', 'Ea quidem quae est u', '759', '824', '7', '381', 1, 'Iste sapiente quia e', 'giselle-guthrie.jpg', NULL, 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(21, 11, 29, 42, 22, 2, 'Idola Soto', 'idola-soto', 'Provident voluptate', 'Quis nisi necessitat', 'Et aut quo ullamco c', 'Et in commodi nulla', 'Quis laboriosam cil', 'Quam perferendis des', '120', '23', '797', '171', 1, 'Nihil in iste sint e', 'idola-soto.jpg', '[\"1799463581527990.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(22, 11, 29, 42, 22, 2, 'Isadora Bass', 'isadora-bass', 'Molestiae molestias', 'Illum sunt consecte', 'Rerum fugit eiusmod', 'Ipsum molestiae ass', 'Commodo iste numquam', 'Et rerum cillum accu', '582', '365', '34', '270', 1, 'Quos dolores volupta', 'isadora-bass.jpeg', '[\"1799463610817276.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(23, 11, 29, 42, 22, 2, 'Orla Chase', 'orla-chase', 'Elit beatae nesciun', 'Ipsum culpa duis ut', 'Commodi rerum volupt', 'Maiores pariatur Ne', 'Aut optio qui odio', 'Non ad vel consequat', '580', '796', '98', '492', 1, 'Laudantium voluptat', 'orla-chase.png', '[\"1799463633655951.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
-(24, 11, 29, 42, 22, 2, 'Aphrodite Pugh', 'aphrodite-pugh', 'Sed quod dolorem Nam', 'Labore ea nesciunt', 'Et delectus volupta', 'Ipsam fugiat optio', 'Ut illo ea quibusdam', 'Sequi unde aut porro', '169', '807', '862', '974', 1, 'Autem duis et quidem', 'aphrodite-pugh.jpeg', '[\"1799463817597101.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:10:03'),
-(25, 8, 31, 33, 22, 2, 'Jamal Kim', 'jamal-kim', 'Amet ipsum adipisci', 'Molestiae dolor dict', 'Voluptas adipisci si', 'Sed sequi consectetu', 'Eu neque elit vero', 'Excepteur repudianda', '955', '44', '649', '394', 1, 'Ut earum commodi dol', 'jamal-kim.jpeg', '[\"1799463840308508.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(26, 11, 29, 42, 22, 2, 'Shoshana Middleton', 'shoshana-middleton', 'Voluptatibus maxime', 'Non ad accusamus et', 'Fugiat dolore enim', 'Consectetur dolor v', 'Do voluptatem nostr', 'Doloremque dolore ne', '410', '790', '886', '25', 1, 'Nemo sed animi aute', 'shoshana-middleton.jpeg', '[\"1799463862923862.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(27, 11, 29, 42, 22, 2, 'Claire Castro', 'claire-castro', 'Eos optio aut moll', 'Voluptatem Tenetur', 'Eaque doloremque mol', 'Aperiam quis laborum', 'Molestias non sit ip', 'Voluptatem vero quib', '735', '653', '330', '566', 1, 'Exercitationem vel q', 'claire-castro.webp', '[\"1799463892946024.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(28, 11, 29, 42, 22, 2, 'Kasimir Hughes', 'kasimir-hughes', 'Et ut recusandae Vo', 'Rerum aliquip totam', 'Enim modi exercitati', 'Corrupti reprehende', 'Dolores nobis expedi', 'Est et eiusmod in v', '688', '149', '166', '877', 1, 'Mollitia quis ipsum', 'kasimir-hughes.jpg', '[\"1799463913771357.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(29, 11, 29, 42, 22, 2, 'Dai Cleveland', 'dai-cleveland', 'Ut sed quaerat dicta', 'Quia qui vero illo e', 'Enim aperiam incidun', 'Ipsum nisi vel dolor', 'Est sint sequi moles', 'Esse laborum Ut con', '919', '203', '923', '127', 1, 'Libero consequuntur', 'dai-cleveland.jpeg', '[\"1799463961412919.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 02:49:53'),
-(30, 12, 28, 45, 22, 2, 'Kessie Morton', 'kessie-morton', 'Cupidatat aliquip la', 'Blanditiis et et dol', 'Quisquam ad praesent', 'Dolore eum nisi unde', 'Et et neque a cillum', 'Debitis voluptates i', '228', '183', '751', '730', 1, 'Necessitatibus exerc', 'kessie-morton.jpeg', '[\"1799464280562399.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(31, 12, 28, 45, 22, 2, 'Cade Hall', 'cade-hall', 'Velit ducimus et nu', 'Quia veniam qui eve', 'Enim inventore exerc', 'Inventore sunt ea qu', 'Id voluptatem et ci', 'Aut doloremque inven', '812', '229', '868', '710', 1, 'Sit culpa sed et mod', 'cade-hall.png', '[\"1799464310994550.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(32, 12, 28, 45, 22, 2, 'Zena Mcpherson', 'zena-mcpherson', 'Sed quis illo volupt', 'Ea ipsam voluptate u', 'Enim inventore exerc,Dignissimos laudanti,Voluptatem voluptat', 'Inventore sunt ea qu,Animi dolor in cons,Dolore ut optio qui', 'Id voluptatem et ci,Praesentium adipisci,Culpa consequatur do', 'Iste earum error eu', '94', '97', '171', '724', 1, 'Ullamco consequat O', 'zena-mcpherson.webp', '[\"1799464342371437.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(33, 12, 28, 45, 22, 2, 'Nomlanga Frost', 'nomlanga-frost', 'Voluptatem nihil al', 'Consequat Dicta exe', 'Amet qui lorem quis', 'Est quia deserunt ul', 'Voluptate itaque eni', 'Dolorem amet molest', '897', '599', '679', '331', 1, 'Et velit ducimus i', 'nomlanga-frost.jpeg', '[\"1799464364205260.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(34, 12, 28, 45, 22, 2, 'Zia Conrad', 'zia-conrad', 'Ratione ipsam totam', 'Sunt doloribus corp', 'Sit suscipit et cupi,Est fugiat veniam', 'Ut laudantium conse,Eum mollit consequat', 'Molestias eos adipi,Adipisicing illo ips', 'Eaque perspiciatis', '390', '135', '662', '615', 1, 'Ipsam veniam est qu', 'zia-conrad.webp', '[\"1799464413169416.jpeg\"]', 1, 1, 1, NULL, NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(35, 12, 28, 45, 22, 4, 'Stephanie Harrell', 'stephanie-harrell', 'Nam quis qui ipsam i', 'Rerum est consequun', 'Voluptatem fuga Vel,Consequuntur sint ma,Saepe provident non,Culpa ad accusamus n,Consectetur quia qui,Aliqua Et commodi f', 'Necessitatibus inven,Minus elit consequa,Molestiae ex pariatu,Incididunt rerum inv,Cupidatat atque ut r,Est enim quam quis', 'Occaecat hic archite,Eu minus iste ducimu,Dolore dolore rerum ,Aut ipsum recusanda,Ex sed accusamus qui,In id odit aut dolor', 'Sed sed distinctio', '507', '179', '541', '144', 2, 'Ut velit aliquam con', 'stephanie-harrell.jpeg', '[\"1799464438848038.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(36, 12, 28, 45, 22, 2, 'Quentin Newton', 'quentin-newton', 'Ipsam harum obcaecat', 'Aut omnis saepe inve', 'Tenetur quia aut aut,Consequatur asperio,Aliquid laborum exce,Expedita deleniti fu,Eos et accusantium ,Assumenda incidunt ,Aut fugiat corrupti,In quo et iste ipsam', 'Sed est voluptatem i,Quia provident repr,Quos quis id in fug,Magni sit quasi sunt,Laborum eum exceptur,Consequatur at volu,In perferendis sit p,Asperiores culpa te', 'Voluptate qui in eum,In aliqua Non et do,Ea sed duis facere a,Voluptas aute unde c,Ut velit in quia omn,Do magni repellendus,Rerum quo voluptatum,Quia et corporis ex', 'Ipsam itaque nisi ei', '945', '764', '790', '35', 1, 'In qui anim et ut ne', 'quentin-newton.jpg', '[\"1799464468481366.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(37, 12, 28, 45, 28, 5, 'Velma Sanchez', 'velma-sanchez', 'Eos ea voluptatibus', 'Ut laborum Sed quae', 'Rerum voluptatem Ev,Officia sapiente aut', 'Minima et at quibusd,Tempore quidem et a', 'Aute itaque enim nem,Ea harum est nisi la', 'Cupidatat porro dolo', '918', '521', '454', '181', 4, 'Velit consequatur A', 'velma-sanchez.jpg', '[\"1799464523902553.png\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(38, 10, 27, 39, 29, 3, 'Ulric Pitts', 'ulric-pitts', 'Autem quis consequat', 'Ullamco aute in volu', 'Molestias eligendi n,Corrupti quas qui i', 'Consequatur officia,Reprehenderit sit', 'Rem atque perspiciat,Incididunt dolorem a', 'Officia perferendis', '374', '839', '839', '602', 2, 'Ea dolore nobis inci', 'ulric-pitts.jpeg', '[\"1799464731094554.png\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(39, 10, 27, 39, 22, 2, 'Kay Valdez', 'kay-valdez', 'Numquam ut doloremqu', 'Voluptate sed autem', 'Facilis voluptatum e', 'Animi autem asperio', 'Quaerat aut ut cumqu', 'Esse do amet nulla', '580', '826', '161', '721', 1, 'Saepe elit dolor vo', 'kay-valdez.jpeg', '[\"1799464757409791.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(40, 10, 27, 39, 22, 2, 'Clementine Black', 'clementine-black', 'Expedita rem officia', 'Qui reprehenderit e', 'Natus atque commodi', 'Nisi consequatur qu', 'Id tempor rerum eiu', 'Ut eiusmod velit in', '646', '918', '623', '321', 1, 'Officiis qui culpa', 'clementine-black.jpg', '[\"1799464789549957.png\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(41, 10, 27, 39, 25, 3, 'Sybill Beasley', 'sybill-beasley', 'Sed sint ullamco vol', 'Magnam voluptatem se', 'Ex debitis officiis', 'Quia ut dolor ducimu', 'Aut aut autem volupt', 'Dolores aut recusand', '295', '44', '707', '722', 3, 'Tempore qui dolore', 'sybill-beasley.jpeg', '[\"1799464821072215.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(42, 10, 27, 39, 22, 2, 'Harlan Guthrie', 'harlan-guthrie', 'Illum excepteur ips', 'Ea rerum libero dese', 'Sed enim impedit au', 'Consequatur elit o', 'Molestiae recusandae', 'Id unde omnis id con', '733', '265', '79', '673', 1, 'Id quis nihil est i', 'harlan-guthrie.jpeg', '[\"1799464861041785.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(43, 10, 27, 39, 22, 2, 'Marcia Mcfadden', 'marcia-mcfadden', 'Sed vero officiis cu', 'Consectetur quisquam', 'Saepe quisquam id la', 'Consectetur exercit', 'Ipsam adipisicing li', 'Illo quidem animi p', '394', '623', '671', '301', 1, 'Magni Nam dolor libe', 'marcia-mcfadden.jpg', '[\"1799464896165039.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(44, 9, 30, 36, 22, 2, 'Ora Mclean', 'ora-mclean', 'Error sunt sint et', 'Quia beatae a unde n', 'Ut exercitation qui', 'Distinctio Voluptat', 'Ut pariatur Libero', 'Dolor sed fugiat mol', '573', '660', '620', '260', 1, 'Sed sunt suscipit q', 'ora-mclean.jpeg', '[\"1799465005581439.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 01:33:10'),
-(45, 9, 30, 36, 22, 2, 'May Koch', 'may-koch', 'Dolore ea incidunt', 'Facere reprehenderit', 'Architecto et deseru', 'Officia aliquam in v', 'Debitis quam ipsum', 'Reprehenderit anim n', '459', '361', '613', '159', 1, 'Quasi debitis illo m', 'may-koch.jpeg', '[\"1799465037052896.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
-(46, 9, 30, 36, 22, 2, 'Quintessa Langley', 'quintessa-langley', 'Magnam id sed optio', 'Deserunt numquam ut', 'Fuga Perspiciatis', 'Consectetur voluptat', 'Non irure ullam quis', 'Ipsum perferendis a', '73', '470', '289', '472', 1, 'Et et qui sint praes', 'quintessa-langley.webp', '[\"1799465068823467.jpg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:31:57'),
-(47, 9, 30, 36, 22, 2, 'Rebekah Ingram', 'rebekah-ingram', 'Debitis exercitation', 'Possimus ullamco ad', 'Mollit ipsum ad acc', 'Molestiae quis labor', 'Id labore id repud', 'Id enim exercitatio', '889', '857', '159', '231', 1, 'Harum facilis consec', 'rebekah-ingram.jpg', '[\"1799465168364139.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:31:51'),
-(48, 9, 30, 36, 22, 2, 'Maia Moran', 'maia-moran', 'Quia ut minus volupt', 'Magna rerum ducimus', 'Officia qui maiores', 'Quia animi irure ut', 'Minim deleniti sunt', 'Asperiores cupidatat', '386', '16', '182', '627', 1, 'Architecto esse mole', 'maia-moran.jpg', '[\"1799465207136983.webp\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 02:22:30'),
-(49, 9, 30, 36, 22, 2, 'Lucius Hatfield', 'lucius-hatfield', 'Sint quos voluptatum', 'Incidunt non sit d', 'Dolor nemo sequi exe', 'Totam aut voluptatem', 'In magnam omnis sapi', 'Sed fugit asperiore', '580', '866', '262', '498', 1, 'Dolores in ut incidi', 'lucius-hatfield.jpeg', '[\"1799465235812807.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:03:40'),
-(50, 8, 31, 33, 22, 2, 'New Product', 'new-product', 'Eu consequatur itaqu', 'In quis ut qui et qu', 'Hic nobis modi id s', 'Aut repellendus Dol', 'Ad quis tempor alias', 'ptdpux0rSgY', '912', '650', '829', '875', 1, 'Omnis voluptas dolor', 'new-product.png', '[\"1799471765507846.jpeg\",\"1799471765582101.jpeg\",\"1799471765667215.jpeg\",\"1799471765705105.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:13:38');
+(8, 8, 31, 33, 24, 2, 'Switch', 'switch', '111', '12', 'switch,piano switch', 'Black,Red,white', NULL, '18251331', '20', '30', NULL, '12', 1, 'switch ........................kuy8w..........', 'switch.png', '[\"1799380849679780.jpg\",\"1799380849942110.webp\"]', 1, 1, 1, '0', 55, NULL, NULL, 1, '1', '18-05-2024', 'May', NULL, '2024-06-02 03:12:36'),
+(9, 8, 31, 34, 24, 2, 'Board Switch', 'board-switch', '22', '13', 'switch,main Switch,]', 'black,red,White', 'Small,midium,large', '1354912', '200', '300', NULL, '5', 1, 'switch ...................sdnmguytg  /////', 'board-switch.jpg', '[\"1799381204703704.jpg\",\"1799381204922100.jpeg\"]', 1, 1, 1, '0', 4, NULL, NULL, 1, NULL, '18-05-2024', 'May', NULL, '2024-05-18 03:36:50'),
+(10, 8, 31, 35, 23, 2, 'calling bell Switch', 'calling-bell-switch', '14', '100', 'calling bel,flat switch,super star switch', 'white,black,red', 'small,Medium,large', '13+7321', '200', '300', NULL, '15', 1, 'callling bell ..........mnhtyd/............st87v', 'switch.webp', '[\"1799382371170046.jpg\",\"1799382371300858.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '18-05-2024', 'May', NULL, '2024-06-06 05:09:12'),
+(11, 11, 29, 42, 22, 2, 'Dacey Cash', 'dacey-cash', 'Dolore aliquam volup', 'Soluta nulla qui ame', 'Aliquam consequatur', 'Veritatis recusandae', 'Et commodi consectet', 'Dolore ipsa hic est', '297', '266', '151', '16', 1, 'Dolore pariatur Non', 'dacey-cash.jpeg', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(12, 10, 27, 39, 22, 2, 'Maia Jennings', 'maia-jennings', 'Rem cupiditate quisq', 'Sit dolor ea libero', 'Exercitationem accus', 'Eligendi duis ut lab', 'Voluptate et hic ist', 'Qui illo voluptas in', '425', '162', '147', '897', 1, 'Consequuntur sed dol', 'maia-jennings.JPG', '[]', 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(13, 10, 27, 39, 22, 2, 'Walter Cruz', 'walter-cruz', 'Aliquip ab nisi qui', 'Itaque nisi consecte', 'Dolore qui molestias', 'Magni dolorem numqua', 'In natus assumenda q', 'Et anim totam except', '628', '743', '622', '312', 1, 'Suscipit rem sapient', 'walter-cruz.jpg', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(14, 12, 28, 45, 27, 2, 'Thomas Workman', 'thomas-workman', 'Culpa ut accusantiu', 'Id sed qui sed sequi', 'Et deserunt exercita', 'Sint nostrum cupida', 'Adipisicing rerum te', 'Et tempore nobis su', '192', '15', '940', '161', 1, 'Odio do consequatur', 'thomas-workman.JPG', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(15, 10, 27, 39, 26, 2, 'Wang Santana', 'wang-santana', 'Qui fugit dolorem n', 'Irure quas vitae aut', 'In officia voluptati', 'Nisi qui voluptatem', 'Iste aut sit aut ali', 'Nemo lorem est velit', '948', '477', '679', '716', 1, 'Deserunt molestiae s', 'wang-santana.png', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(16, 10, 27, 39, 22, 2, 'Uriah Wilkinson', 'uriah-wilkinson', 'Qui excepturi et a u', 'Quaerat ipsa placea', 'Quo perferendis aute', 'Et irure eius dolore', 'Veniam adipisicing', 'Corporis tempora inv', '693', '28', '268', '459', 1, 'Voluptatem Quia qui', 'uriah-wilkinson.jpg', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(17, 12, 28, 45, 30, 3, 'Allen Wagner', 'allen-wagner', 'Magnam laborum neque', 'Reprehenderit molest', 'Vel ipsum deserunt n,Et iusto in quia max', 'Dolores sed temporib,Ab eos est rerum nos', 'Maiores non beatae r,Et aliqua Architect', 'Assumenda autem offi', '704', '763', '509', '80', 1, 'Ut eum facilis conse', 'allen-wagner.JPG', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(18, 8, 31, 33, 22, 2, 'Julian Acevedo', 'julian-acevedo', 'Omnis ullam unde com', 'Perspiciatis velit', 'Enim ut fuga Facili', 'Nulla consectetur ad', 'Nulla et perspiciati', 'Aut dolor aut dolore', '497', '253', '682', '213', 1, 'Ut dolorem qui et qu', 'julian-acevedo.JPG', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(19, 9, 30, 36, 22, 2, 'Stacey Mann', 'stacey-mann', 'Ipsa libero dolore', 'Commodi dolore deser', 'Ullam aliquip ex dol', 'Velit velit ut veni', 'Est consequatur nobi', 'Ex earum velit sint', '724', '234', '109', '608', 1, 'Non voluptates in ul', 'stacey-mann.png', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, '2024-05-19 00:59:57'),
+(20, 11, 29, 42, 22, 2, 'Giselle Guthrie', 'giselle-guthrie', 'Libero occaecat reic', 'Velit eos reprehend', 'Sunt autem vel eius', 'Iste aliqua Exercit', 'Omnis sapiente et cu', 'Ea quidem quae est u', '759', '824', '7', '381', 1, 'Iste sapiente quia e', 'giselle-guthrie.jpg', NULL, 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(21, 11, 29, 42, 22, 2, 'Idola Soto', 'idola-soto', 'Provident voluptate', 'Quis nisi necessitat', 'Et aut quo ullamco c', 'Et in commodi nulla', 'Quis laboriosam cil', 'Quam perferendis des', '120', '23', '797', '171', 1, 'Nihil in iste sint e', 'idola-soto.jpg', '[\"1799463581527990.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(22, 11, 29, 42, 22, 2, 'Isadora Bass', 'isadora-bass', 'Molestiae molestias', 'Illum sunt consecte', 'Rerum fugit eiusmod', 'Ipsum molestiae ass', 'Commodo iste numquam', 'Et rerum cillum accu', '582', '365', '34', '270', 1, 'Quos dolores volupta', 'isadora-bass.jpeg', '[\"1799463610817276.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(23, 11, 29, 42, 22, 2, 'Orla Chase', 'orla-chase', 'Elit beatae nesciun', 'Ipsum culpa duis ut', 'Commodi rerum volupt', 'Maiores pariatur Ne', 'Aut optio qui odio', 'Non ad vel consequat', '580', '796', '98', '492', 1, 'Laudantium voluptat', 'orla-chase.png', '[\"1799463633655951.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, NULL, '19-05-2024', 'May', NULL, NULL),
+(24, 11, 29, 42, 22, 2, 'Aphrodite Pugh', 'aphrodite-pugh', 'Sed quod dolorem Nam', 'Labore ea nesciunt', 'Et delectus volupta', 'Ipsam fugiat optio', 'Ut illo ea quibusdam', 'Sequi unde aut porro', '169', '807', '862', '974', 1, 'Autem duis et quidem', 'aphrodite-pugh.jpeg', '[\"1799463817597101.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:10:03'),
+(25, 8, 31, 33, 22, 2, 'Jamal Kim', 'jamal-kim', 'Amet ipsum adipisci', 'Molestiae dolor dict', 'Voluptas adipisci si', 'Sed sequi consectetu', 'Eu neque elit vero', 'Excepteur repudianda', '955', '44', '649', '394', 1, 'Ut earum commodi dol', 'jamal-kim.jpeg', '[\"1799463840308508.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(26, 11, 29, 42, 22, 2, 'Shoshana Middleton', 'shoshana-middleton', 'Voluptatibus maxime', 'Non ad accusamus et', 'Fugiat dolore enim', 'Consectetur dolor v', 'Do voluptatem nostr', 'Doloremque dolore ne', '410', '790', '886', '25', 1, 'Nemo sed animi aute', 'shoshana-middleton.jpeg', '[\"1799463862923862.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(27, 11, 29, 42, 22, 2, 'Claire Castro', 'claire-castro', 'Eos optio aut moll', 'Voluptatem Tenetur', 'Eaque doloremque mol', 'Aperiam quis laborum', 'Molestias non sit ip', 'Voluptatem vero quib', '735', '653', '330', '566', 1, 'Exercitationem vel q', 'claire-castro.webp', '[\"1799463892946024.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(28, 11, 29, 42, 22, 2, 'Kasimir Hughes', 'kasimir-hughes', 'Et ut recusandae Vo', 'Rerum aliquip totam', 'Enim modi exercitati', 'Corrupti reprehende', 'Dolores nobis expedi', 'Est et eiusmod in v', '688', '149', '166', '877', 1, 'Mollitia quis ipsum', 'kasimir-hughes.jpg', '[\"1799463913771357.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(29, 11, 29, 42, 22, 2, 'Dai Cleveland', 'dai-cleveland', 'Ut sed quaerat dicta', 'Quia qui vero illo e', 'Enim aperiam incidun', 'Ipsum nisi vel dolor', 'Est sint sequi moles', 'Esse laborum Ut con', '919', '203', '923', '127', 1, 'Libero consequuntur', 'dai-cleveland.jpeg', '[\"1799463961412919.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 02:49:53'),
+(30, 12, 28, 45, 22, 2, 'Kessie Morton', 'kessie-morton', 'Cupidatat aliquip la', 'Blanditiis et et dol', 'Quisquam ad praesent', 'Dolore eum nisi unde', 'Et et neque a cillum', 'Debitis voluptates i', '228', '183', '751', '730', 1, 'Necessitatibus exerc', 'kessie-morton.jpeg', '[\"1799464280562399.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(31, 12, 28, 45, 22, 2, 'Cade Hall', 'cade-hall', 'Velit ducimus et nu', 'Quia veniam qui eve', 'Enim inventore exerc', 'Inventore sunt ea qu', 'Id voluptatem et ci', 'Aut doloremque inven', '812', '229', '868', '710', 1, 'Sit culpa sed et mod', 'cade-hall.png', '[\"1799464310994550.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(32, 12, 28, 45, 22, 2, 'Zena Mcpherson', 'zena-mcpherson', 'Sed quis illo volupt', 'Ea ipsam voluptate u', 'Enim inventore exerc,Dignissimos laudanti,Voluptatem voluptat', 'Inventore sunt ea qu,Animi dolor in cons,Dolore ut optio qui', 'Id voluptatem et ci,Praesentium adipisci,Culpa consequatur do', 'Iste earum error eu', '94', '97', '171', '724', 1, 'Ullamco consequat O', 'zena-mcpherson.webp', '[\"1799464342371437.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(33, 12, 28, 45, 22, 2, 'Nomlanga Frost', 'nomlanga-frost', 'Voluptatem nihil al', 'Consequat Dicta exe', 'Amet qui lorem quis', 'Est quia deserunt ul', 'Voluptate itaque eni', 'Dolorem amet molest', '897', '599', '679', '331', 1, 'Et velit ducimus i', 'nomlanga-frost.jpeg', '[\"1799464364205260.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(34, 12, 28, 45, 22, 2, 'Zia Conrad', 'zia-conrad', 'Ratione ipsam totam', 'Sunt doloribus corp', 'Sit suscipit et cupi,Est fugiat veniam', 'Ut laudantium conse,Eum mollit consequat', 'Molestias eos adipi,Adipisicing illo ips', 'Eaque perspiciatis', '390', '135', '662', '615', 1, 'Ipsam veniam est qu', 'zia-conrad.webp', '[\"1799464413169416.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(35, 12, 28, 45, 22, 4, 'Stephanie Harrell', 'stephanie-harrell', 'Nam quis qui ipsam i', 'Rerum est consequun', 'Voluptatem fuga Vel,Consequuntur sint ma,Saepe provident non,Culpa ad accusamus n,Consectetur quia qui,Aliqua Et commodi f', 'Necessitatibus inven,Minus elit consequa,Molestiae ex pariatu,Incididunt rerum inv,Cupidatat atque ut r,Est enim quam quis', 'Occaecat hic archite,Eu minus iste ducimu,Dolore dolore rerum ,Aut ipsum recusanda,Ex sed accusamus qui,In id odit aut dolor', 'Sed sed distinctio', '507', '179', '541', '144', 2, 'Ut velit aliquam con', 'stephanie-harrell.jpeg', '[\"1799464438848038.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(36, 12, 28, 45, 22, 2, 'Quentin Newton', 'quentin-newton', 'Ipsam harum obcaecat', 'Aut omnis saepe inve', 'Tenetur quia aut aut,Consequatur asperio,Aliquid laborum exce,Expedita deleniti fu,Eos et accusantium ,Assumenda incidunt ,Aut fugiat corrupti,In quo et iste ipsam', 'Sed est voluptatem i,Quia provident repr,Quos quis id in fug,Magni sit quasi sunt,Laborum eum exceptur,Consequatur at volu,In perferendis sit p,Asperiores culpa te', 'Voluptate qui in eum,In aliqua Non et do,Ea sed duis facere a,Voluptas aute unde c,Ut velit in quia omn,Do magni repellendus,Rerum quo voluptatum,Quia et corporis ex', 'Ipsam itaque nisi ei', '945', '764', '790', '35', 1, 'In qui anim et ut ne', 'quentin-newton.jpg', '[\"1799464468481366.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(37, 12, 28, 45, 28, 5, 'Velma Sanchez', 'velma-sanchez', 'Eos ea voluptatibus', 'Ut laborum Sed quae', 'Rerum voluptatem Ev,Officia sapiente aut', 'Minima et at quibusd,Tempore quidem et a', 'Aute itaque enim nem,Ea harum est nisi la', 'Cupidatat porro dolo', '918', '521', '454', '181', 4, 'Velit consequatur A', 'velma-sanchez.jpg', '[\"1799464523902553.png\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(38, 10, 27, 39, 29, 3, 'Ulric Pitts', 'ulric-pitts', 'Autem quis consequat', 'Ullamco aute in volu', 'Molestias eligendi n,Corrupti quas qui i', 'Consequatur officia,Reprehenderit sit', 'Rem atque perspiciat,Incididunt dolorem a', 'Officia perferendis', '374', '839', '839', '602', 2, 'Ea dolore nobis inci', 'ulric-pitts.jpeg', '[\"1799464731094554.png\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-06-02 03:35:21'),
+(39, 10, 27, 39, 22, 2, 'Kay Valdez', 'kay-valdez', 'Numquam ut doloremqu', 'Voluptate sed autem', 'Facilis voluptatum e', 'Animi autem asperio', 'Quaerat aut ut cumqu', 'Esse do amet nulla', '580', '826', '161', '721', 1, 'Saepe elit dolor vo', 'kay-valdez.jpeg', '[\"1799464757409791.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(40, 10, 27, 39, 22, 2, 'Clementine Black', 'clementine-black', 'Expedita rem officia', 'Qui reprehenderit e', 'Natus atque commodi', 'Nisi consequatur qu', 'Id tempor rerum eiu', 'Ut eiusmod velit in', '646', '918', '623', '321', 1, 'Officiis qui culpa', 'clementine-black.jpg', '[\"1799464789549957.png\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(41, 10, 27, 39, 25, 3, 'Sybill Beasley', 'sybill-beasley', 'Sed sint ullamco vol', 'Magnam voluptatem se', 'Ex debitis officiis', 'Quia ut dolor ducimu', 'Aut aut autem volupt', 'Dolores aut recusand', '295', '44', '707', '722', 3, 'Tempore qui dolore', 'sybill-beasley.jpeg', '[\"1799464821072215.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(42, 10, 27, 39, 22, 2, 'Harlan Guthrie', 'harlan-guthrie', 'Illum excepteur ips', 'Ea rerum libero dese', 'Sed enim impedit au', 'Consequatur elit o', 'Molestiae recusandae', 'Id unde omnis id con', '733', '265', '79', '673', 1, 'Id quis nihil est i', 'harlan-guthrie.jpeg', '[\"1799464861041785.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(43, 10, 27, 39, 22, 2, 'Marcia Mcfadden', 'marcia-mcfadden', 'Sed vero officiis cu', 'Consectetur quisquam', 'Saepe quisquam id la', 'Consectetur exercit', 'Ipsam adipisicing li', 'Illo quidem animi p', '394', '623', '671', '301', 1, 'Magni Nam dolor libe', 'marcia-mcfadden.jpg', '[\"1799464896165039.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(44, 9, 30, 36, 22, 2, 'Ora Mclean', 'ora-mclean', 'Error sunt sint et', 'Quia beatae a unde n', 'Ut exercitation qui', 'Distinctio Voluptat', 'Ut pariatur Libero', 'Dolor sed fugiat mol', '573', '660', '620', '260', 1, 'Sed sunt suscipit q', 'ora-mclean.jpeg', '[\"1799465005581439.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 01:33:10'),
+(45, 9, 30, 36, 22, 2, 'May Koch', 'may-koch', 'Dolore ea incidunt', 'Facere reprehenderit', 'Architecto et deseru', 'Officia aliquam in v', 'Debitis quam ipsum', 'Reprehenderit anim n', '459', '361', '613', '159', 1, 'Quasi debitis illo m', 'may-koch.jpeg', '[\"1799465037052896.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, NULL),
+(46, 9, 30, 36, 22, 2, 'Quintessa Langley', 'quintessa-langley', 'Magnam id sed optio', 'Deserunt numquam ut', 'Fuga Perspiciatis', 'Consectetur voluptat', 'Non irure ullam quis', 'Ipsum perferendis a', '73', '470', '289', '472', 1, 'Et et qui sint praes', 'quintessa-langley.webp', '[\"1799465068823467.jpg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:31:57'),
+(47, 9, 30, 36, 22, 2, 'Rebekah Ingram', 'rebekah-ingram', 'Debitis exercitation', 'Possimus ullamco ad', 'Mollit ipsum ad acc', 'Molestiae quis labor', 'Id labore id repud', 'Id enim exercitatio', '889', '857', '159', '231', 1, 'Harum facilis consec', 'rebekah-ingram.jpg', '[\"1799465168364139.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 03:31:51'),
+(48, 9, 30, 36, 22, 2, 'Maia Moran', 'maia-moran', 'Quia ut minus volupt', 'Magna rerum ducimus', 'Officia qui maiores', 'Quia animi irure ut', 'Minim deleniti sunt', 'Asperiores cupidatat', '386', '16', '182', '627', 1, 'Architecto esse mole', 'maia-moran.jpg', '[\"1799465207136983.webp\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-05-19 02:22:30'),
+(49, 9, 30, 36, 22, 2, 'Lucius Hatfield', 'lucius-hatfield', 'Sint quos voluptatum', 'Incidunt non sit d', 'Dolor nemo sequi exe', 'Totam aut voluptatem', 'In magnam omnis sapi', 'Sed fugit asperiore', '580', '866', '262', '498', 1, 'Dolores in ut incidi', 'lucius-hatfield.jpeg', '[\"1799465235812807.jpeg\"]', 1, 1, 1, '1', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-06-06 05:26:21'),
+(50, 8, 31, 33, 22, 2, 'New Product', 'new-product', 'Eu consequatur itaqu', 'In quis ut qui et qu', 'Hic nobis modi id s', 'Aut repellendus Dol', 'Ad quis tempor alias', 'ptdpux0rSgY', '912', '650', '829', '875', 1, 'Omnis voluptas dolor', 'new-product.png', '[\"1799471765507846.jpeg\",\"1799471765582101.jpeg\",\"1799471765667215.jpeg\",\"1799471765705105.jpeg\"]', 1, 1, 1, '0', NULL, NULL, NULL, 1, '1', '19-05-2024', 'May', NULL, '2024-06-06 04:19:40');
 
 -- --------------------------------------------------------
 
@@ -656,7 +699,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `currency`, `phone_one`, `phone_two`, `main_email`, `support_email`, `logo`, `favicon`, `address`, `facebook`, `twitter`, `instagram`, `linkedin`, `youtube`, `created_at`, `updated_at`) VALUES
-(1, '৳', '01711578333', '01711578333', 'marazzak@gmail.com', NULL, 'files/setting/6644682a2cf09.jpg', 'files/setting/6644682a2d471.png', 'Mohammadpur Dhaka bangladesh', 'facebook.com', 'Incidunt eius tenet', 'instagram.com', 'linkdin.com', 'youtube.com', NULL, NULL);
+(1, '৳', '01711578333', '01711578333', 'marazzak@gmail.com', NULL, 'files/setting/66605bbbb2fa0.png', 'files/setting/66605bbbb51a4.png', 'Mohammadpur Dhaka bangladesh', 'facebook.com', 'Incidunt eius tenet', 'instagram.com', 'linkdin.com', 'youtube.com', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -771,6 +814,11 @@ CREATE TABLE `users` (
   `setting` int(11) DEFAULT 0,
   `userrole` int(11) DEFAULT 0,
   `role_admin` varchar(255) DEFAULT NULL,
+  `sales_partner` int(11) DEFAULT NULL,
+  `partner_id` varchar(255) DEFAULT NULL,
+  `commission_rate` int(25) DEFAULT NULL,
+  `is_partner` int(10) DEFAULT NULL,
+  `partner_role` int(10) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -780,13 +828,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `is_admin`, `avatar`, `provider`, `provider_id`, `access_token`, `category`, `product`, `offer`, `order`, `blog`, `pickup`, `ticket`, `contact`, `report`, `setting`, `userrole`, `role_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$8vdPXCdVIDOhpWmoAWL.Wumt9tGdkGTFNrFEX8yPS.6n7KCZQ7zPu', NULL, 1, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '1', NULL, NULL, NULL),
-(2, 'Shoumen Mondal', 'shoumen@gmail.com', NULL, '$2y$12$JWNuxxhlU.c5r9DrOkGPvesXdfRHjwiJJQCiUk0NozSbKRyqxQJKO', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1, NULL, NULL, '1', NULL, NULL, NULL),
-(3, 'Customer', 'customer@gmail.com', NULL, '$2y$12$jZ8.j0wl8FXqJNWzAT7xPukoV30GiIbJIy4t3G0Zti3H97NOno57G', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, '2024-03-30 08:26:21', '2024-03-30 08:26:21'),
-(4, 'Sangita Biswas', 'sangita@gmail.com', NULL, '$2y$12$ntcZmy9w/dlXS9fduQsTmOZLIR7Z097j.hcGFARVlPVxdWNyKndRu', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, '2024-03-30 08:26:58', '2024-03-30 08:26:58'),
-(5, 'customer2', 'customer23@gmail.com', NULL, '$2y$12$LwIGL3GRJseOBB3UFjswxOa0MGlw3HZpBzAL5nQrVnWcb32UVlLby', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, '2024-04-24 03:50:17', '2024-04-24 03:50:17'),
-(6, 'Shoumen', 'shoumen123@gmail.com', NULL, '$2y$12$Tn7aJUm1a3uhxHxbAPMZc.mJqR3rNfhhjwLU9sUmpDMtTOIutNBcu', NULL, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `is_admin`, `avatar`, `provider`, `provider_id`, `access_token`, `category`, `product`, `offer`, `order`, `blog`, `pickup`, `ticket`, `contact`, `report`, `setting`, `userrole`, `role_admin`, `sales_partner`, `partner_id`, `commission_rate`, `is_partner`, `partner_role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$8vdPXCdVIDOhpWmoAWL.Wumt9tGdkGTFNrFEX8yPS.6n7KCZQ7zPu', NULL, 1, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '1', 0, '', 0, NULL, NULL, NULL, NULL, NULL),
+(2, 'Shoumen Mondal', 'shoumen@gmail.com', NULL, '$2y$12$JWNuxxhlU.c5r9DrOkGPvesXdfRHjwiJJQCiUk0NozSbKRyqxQJKO', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1, NULL, NULL, '1', 0, '', 0, NULL, NULL, NULL, NULL, NULL),
+(3, 'Customer', 'customer@gmail.com', NULL, '$2y$12$jZ8.j0wl8FXqJNWzAT7xPukoV30GiIbJIy4t3G0Zti3H97NOno57G', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, '', 0, NULL, NULL, NULL, '2024-03-30 08:26:21', '2024-03-30 08:26:21'),
+(4, 'Sangita Biswas', 'sangita@gmail.com', NULL, '$2y$12$ntcZmy9w/dlXS9fduQsTmOZLIR7Z097j.hcGFARVlPVxdWNyKndRu', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, '', 0, NULL, NULL, NULL, '2024-03-30 08:26:58', '2024-03-30 08:26:58'),
+(5, 'customer2', 'customer23@gmail.com', NULL, '$2y$12$LwIGL3GRJseOBB3UFjswxOa0MGlw3HZpBzAL5nQrVnWcb32UVlLby', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, '', 0, NULL, NULL, NULL, '2024-04-24 03:50:17', '2024-04-24 03:50:17'),
+(6, 'Shoumen', 'shoumen123@gmail.com', NULL, '$2y$12$Tn7aJUm1a3uhxHxbAPMZc.mJqR3rNfhhjwLU9sUmpDMtTOIutNBcu', NULL, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', 0, '', 0, NULL, NULL, NULL, NULL, NULL),
+(14, 'sales partner', 'salespartner@gmail.com', NULL, '$2y$12$pFCCrtmTtgqGXk1e2375L.0wD6ivj6c17kmYtdWuyHukxxfb0JlOy', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 1, 'p101010', 10, 7, 7, NULL, NULL, NULL),
+(15, 'sales', 'sale@gmail.com', NULL, '$2y$12$C03qCYUdOefOCEmpD9/18e3knBauX18pkg3VFgaXTUMTAFxIIeUBe', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 1, 'p10201020', 5, 7, 7, NULL, NULL, NULL),
+(16, 'Partner', 'partner@gmail.com', NULL, '$2y$12$ZwRB2UhaJZmbbyLFYeBuU.iPz.QVSWRu8pH4jEvhlfOZuSaXDqgwK', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 1, 'p12002415610', 10, 7, 7, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -904,6 +955,13 @@ ALTER TABLE `childcategories`
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `electtricians`
+--
+ALTER TABLE `electtricians`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `electtricians_elec_email_unique` (`elec_email`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -1110,6 +1168,12 @@ ALTER TABLE `coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `electtricians`
+--
+ALTER TABLE `electtricians`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -1119,7 +1183,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `newsletters`
@@ -1221,7 +1285,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `warehouses`

@@ -26,10 +26,10 @@
               <div class="card-header">
                 <h3 class="card-title">All Electrician List </h3>
               </div><br>
-              <div class="row p-2">
+              <div class="row p-3">
               	<div class="form-group col-3">
               		<label>Division</label>
-              		 <select class="form-control submitable" name="category_id" id="category_id">
+              		 <select class="form-control submitable" name="" id="">
               		 	<option value="">All</option>
               		 	 
               		 	    <option value=""></option>
@@ -38,7 +38,7 @@
               	</div>
               	<div class="form-group col-3">
               		<label>District</label>
-              		 <select class="form-control submitable" name="brand_id" id="brand_id">
+              		 <select class="form-control submitable" name="" id="">
               		 	<option value="">All</option>
               		 	  
               		 	    <option value=""></option>
@@ -115,7 +115,7 @@
 				{data:'thumbnail'  ,name:'thumbnail'},
 				{data:'elec_name'  ,name:'elec_name'},
 				{data:'elec_phone'  ,name:'elec-phone'},
-				{data:'elec_creator',name:'elec_creator'},
+				{data:'elec_creator',name:'name'},
 				{data:'elec_editor',name:'elec_editor'},
 				
 				{data:'elec_status',name:'elec_status'},

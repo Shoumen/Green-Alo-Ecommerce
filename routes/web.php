@@ -88,6 +88,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
 
     
     Route::get('/contact-us','IndexController@Contact')->name('contact');
+    Route::get('/electricians','IndexController@Electrician')->name('electrician');
     Route::get('/our-blog','IndexController@Blog')->name('blog');
     
     //__campaign__//

@@ -202,6 +202,15 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 			Route::get('/edit/{id}','RoleController@edit')->name('role.edit');
 			Route::post('/update','RoleController@update')->name('update.role');
 		});
+		 //__ create partner__
+		 Route::group(['prefix'=>'partner'], function(){
+			Route::get('/','PartnerController@index')->name('manage.partner');
+			Route::get('/create','PartnerController@create')->name('create.partner');
+			Route::post('/store','PartnerController@store')->name('store.partner');
+			Route::get('/delete/{id}','PartnerController@destroy')->name('partner.delete');
+			Route::get('/edit/{id}','PartnerController@edit')->name('partner.edit');
+			// Route::post('/update','PartnerController@update')->name('update.partner');
+		});
  
 	    //__report routes__// <!-- https://github.com/Shoumen -->
 	    Route::group(['prefix'=>'report'], function(){
