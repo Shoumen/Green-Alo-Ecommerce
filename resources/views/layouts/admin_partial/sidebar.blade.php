@@ -404,9 +404,12 @@
             </ul>
           </li>
           @endif
-
-
-
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon far earth-outline text-info"></i>
+              <p class="text">Open site</p>
+            </a>
+          </li>
 
           <li class="nav-header">PROFILE</li>
           
@@ -416,6 +419,7 @@
               <p class="text">Password Change</p>
             </a>
           </li>
+          
           <!-- https://github.com/Shoumen -->
           <li class="nav-item">
             <a href="{{ route('admin.logout') }}" class="nav-link">

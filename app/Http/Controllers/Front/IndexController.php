@@ -154,6 +154,13 @@ class IndexController extends Controller
        return view('frontend.electrician.electrician');
    }
 
+   public function ElectricianRegister()
+   {
+       return view('frontend.electrician.elec_register');
+   }
+
+  
+
    //__blog page
    public function Blog()
    {

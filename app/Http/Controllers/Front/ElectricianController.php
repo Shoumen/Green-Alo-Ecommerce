@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
-use Auth;
+
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -20,7 +20,7 @@ class ElectricianController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
     public function index(Request $request)
     {
@@ -57,33 +57,33 @@ class ElectricianController extends Controller
     				->make(true);
     	}
 
-    	return view('admin.electrician.index');
+    	return view('frontend.electrician.elec_register');
     }
 
 
-    public function create()
+    public function ElectricianRegister()
     {
         // $category=DB::table('categories')->get();  // Category::all();
         // $brand=DB::table('brands')->get();          // Brand::all();
         // $pickup_point=DB::table('pickup_point')->get();  // Pickuppoint::all();
         // $warehosue=DB::table('warehouses')->get();  // Warehouse::all();
 
-        return view('fronted.electrician.elec_register');
+        return view('frontend.electrician.elec_register');
     }
      //product store method
      public function store(Request $request)
      {
         $validated = $request->validate([
-            'elec_name' => 'required',
+            // 'elec_name' => 'required',
             // 'elec_phone' => 'required|unique:products|max:55',
             // 'elec_email' => 'required',
-            'elec_password' => 'required',
-            'elec_nid_number' => 'required',
-            'elec_description' => 'required',
+            // 'elec_password' => 'required',
+            // 'elec_nid_number' => 'required',
+            // 'elec_description' => 'required',
         ]);
 
         $slug=Str::slug($request->elec_name, '-');
-        $creator= Auth::user()->id;
+        
  
  
         $data=array();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class PartnerController extends Controller
    
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     //__role index
@@ -23,9 +23,9 @@ class PartnerController extends Controller
     }
 
     //__create roll
-    public function create()
+    public function PartnerRegister()
     {
-        return view('admin.partner.create');
+        return view('frontend.partner.partner_register');
     }
 
     //__store role__//
@@ -88,3 +88,5 @@ class PartnerController extends Controller
         return redirect()->back()->with($notification);
     }
 }
+
+

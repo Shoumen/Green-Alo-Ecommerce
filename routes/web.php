@@ -89,11 +89,23 @@ Route::group(['namespace'=>'App\Http\Controllers\Front'], function(){
     
     Route::get('/contact-us','IndexController@Contact')->name('contact');
     Route::get('/electricians','IndexController@Electrician')->name('electrician');
+    Route::get('/electrician/register','IndexController@ElectricianRegister')->name('electrician.register');
+    
     Route::get('/our-blog','IndexController@Blog')->name('blog');
+
+    //Partner Regigiter//
+    Route::get('/partner/register','PartnerController@PartnerRegister')->name('partner.register');
+    Route::post('/store','PartnerController@store')->name('store.partner');
+
+    //Electricin Register//
+    // Route::get('/','ElectricianController@index')->name('electrician.index');
+	Route::get('/electrician/register','ElectricianController@ElectricianRegister')->name('electrician.register');
+	Route::post('/store','ElectricianController@store')->name('electrician.store');
     
     //__campaign__//
     Route::get('/campain/products/{id}','IndexController@CampaignProduct')->name('frontend.campaign.product');   
     Route::get('/camapign-product-details/{slug}','IndexController@CampaignProductDetails')->name('campaign.product.details');
+   
     });
 
 

@@ -56,52 +56,7 @@
                             </div>
                             @endif
 
-                            @guest
-                            <div class="top_bar_menu">
-                                <ul class="standard_dropdown top_bar_dropdown">
-                                    <li>
-                                        <a href="#">Login<i class="fas fa-chevron-down"></i></a>
-                                        <ul style="width:300px; padding:10px;">
-                                           <div>  <!-- https://github.com/Shoumen -->
-                                            <strong>login your account</strong><br>
-                                            <br>
-                                               <form action="{{ route('login') }}" method="post">
-                                                @csrf
-                                                   <div class="form-group">
-                                                       <label>Email Address</label>
-                                                       <input type="email" class="form-control" name="email" autocomplete="off" required="">
-                                                   </div>
-                                                   <div class="form-group">
-                                                       <label>Password</label>
-                                                       <input type="password" class="form-control" name="password" required="">
-                                                   </div>
-                                                   <div class="form-group row">
-                                                       <div class="offset-md-2">
-                                                           <div class="form-check">
-                                                               <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                                               <label class="form-check-label" for="remember">
-                                                                   {{ __('Remember Me') }}
-                                                               </label>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="form-group">
-                                                       <button type="submit" class="btn btn-sm btn-info">login</button>
-                                                   </div>
-                                               </form>
-                                               <div class="form-group">
-                                                 <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-sm btn-block text-white">Login WIth Google</a>
-                                                </div>
-                                           </div>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                    <a href="{{ route('register') }}">Register</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            @endguest
+                            
                         </div>
                     </div>
                 </div>
@@ -156,44 +111,100 @@
                         $wishlist=DB::table('wishlists')->where('user_id',Auth::id())->count();
                     @endphp
                     <!-- Wishlist -->
+                    
                     <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                         <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                             <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                                <img alt="phone" src="{{ asset('/frontend') }}/images/phone.png" width="30" height="30" >
-
-                                 <div>
-                                
-                                    <div class="wishlist_text"><a href="{{ route('wishlist') }}"></a></div>
-                                    <div class="wishlist_count">{{ $setting->phone_one }}</div>
-                                </div>
-                            </div>
-
-                            <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                            
-                                <div class="wishlist_content">
                                 <div class="wishlist_icon"><img src="{{ asset('/frontend') }}/images/heart.png" alt=""></div>
-                                    <div class="wishlist_text"><a href="{{ route('wishlist') }}"></a></div>
+                                <div class="wishlist_content">
+                                    <div class="wishlist_text"><a href="{{ route('wishlist') }}">Wishlist</a></div>
                                     <div class="wishlist_count">{{ $wishlist }}</div>
                                 </div>
-                                
                             </div>
-                            
-
-                                 <!-- Cart -->
-                                <div class="cart">
-                                    <div class="cart_container d-flex flex-row align-items-center justify-content-end">
-                                        <div class="cart_icon">
-                                            <img src="{{ asset('/frontend') }}/images/cart.png" alt="">
-                                            <div class="cart_count"><span class="cart_qty"></span></div>
-                                        </div>  <!-- https://github.com/Shoumen -->
-                                        <div class="cart_content">
-                                            <div class="cart_text"><a href="{{ route('cart') }}" >Cart</a></div>
-                                            <div class="cart_price">{{ $setting->currency }} <span class="cart_total"></span></div>
-                                        </div>
+                            <div class="cart">
+                                <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                                    <div class="cart_icon">
+                                        <img src="{{ asset('/frontend') }}/images/cart.png" alt="">
+                                        <div class="cart_count"><span class="cart_qty"></span></div>
                                     </div>
+                                    <div class="cart_content">
+                                        <div class="cart_text"><a href="{{ route('cart') }}">Cart</a></div>
+                                        <div class="cart_price">{{ $setting->currency }} <span class="cart_total"></span></div>
+                                    </div>
+                                </div>   
+                            </div>  
+                            
+                            <div class="">
+                                <div class="">
+                            @guest
+                            <div class="top_bar_menu">
+                                <ul class="standard_dropdown top_bar_dropdown">
+                                    <li>
+                                         <img src="{{ asset('/frontend') }}/images/user.png" width="30px" height="30px"; alt="">
+                                        <a href="#"><i class="fas fa-chevron-down"></i></a>
+                                        <ul style="width:300px; padding:10px;">
+                                           <div>  <!-- https://github.com/Shoumen -->
+                                            <strong>login your account</strong><br>
+                                            <br>
+                                               <form action="{{ route('login') }}" method="post">
+                                                @csrf
+                                                   <div class="form-group">
+                                                       <label>Email Address</label>
+                                                       <input type="email" class="form-control" name="email" autocomplete="off" required="">
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <label>Password</label>
+                                                       <input type="password" class="form-control" name="password" required="">
+                                                   </div>
+                                                   <div class="form-group row">
+                                                       <div class="offset-md-2">
+                                                           <div class="form-check">
+                                                               <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                               <label class="form-check-label" for="remember">
+                                                                   {{ __('Remember Me') }}
+                                                               </label>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <button type="submit" class="btn btn-sm btn-info">login</button>
+                                                  </div>
+                                                  <div class="cat_menu_container">
+                                                <div class="">
+                                                    <div class=""><span></span><span></span><span></span></div>
+                                                    <div class="cat_menu_text" style="position: relative">Register</div>
+                                                </div>
+
+                                                    <ul class="cat_menu cate_menu" style="position: absolate; bottom: 0px; left: 0px;">
+                                                        
+                                                    
+                                                        <li class="cat_menu_text">
+                                                            <a href="{{ route('register') }}">as Customer </a>
+                                                            <a href="{{ route('partner.register') }}">as Partner </a>
+                                                            <a href="{{ route('electrician.register') }}">as Electrician </a>
+                                                        
+                                                        </li>
+                                                        
+                                                    </ul> 
+                                                 </div>
+                                                   
+                                               </form>
+                                               
+                                           </div>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                    <!-- <a href="{{ route('register') }}">Register</a> -->
+                                    </li>
+                                </ul>
                             </div>
+                            @endguest
+                                </div>   
+                            </div>  
                             
                         </div>
+                        
                     </div>
                 </div>
             </div>

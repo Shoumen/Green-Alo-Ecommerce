@@ -10,7 +10,7 @@ Route::get('/ajax/child/category/{id}', [App\Http\Controllers\AjaxController::cl
 
 
 Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admin'], function(){
-	Route::get('/admin/home','AdminController@admin')->name('admin.home');
+	Route::get('/admin/dashboard','AdminController@admin')->name('admin.home');
 	Route::get('/admin/logout','AdminController@logout')->name('admin.logout');
     Route::get('/admin/password/change','AdminController@PasswordChange')->name('admin.password.change');
     Route::post('/admin/password/update','AdminController@PasswordUpdate')->name('admin.password.update');
@@ -78,6 +78,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware' =>'is_admi
 		Route::get('/active-status/{id}','ProductController@activestatus');
 		Route::get('/not-status/{id}','ProductController@notstatus');
 	});
+	//Electrician Routes
 	Route::group(['prefix'=>'electrician'], function(){
 		Route::get('/','ElectricianController@index')->name('electrician.index');
 		Route::get('/create','ElectricianController@create')->name('electrician.create');
